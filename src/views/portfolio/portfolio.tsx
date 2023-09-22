@@ -2,7 +2,6 @@ import StockChart from "../../components/stockChart";
 import LabTabs from "../../components/common/dataGrid/tabs";
 import Collateral_Leverage from '../../shared/components/collateral_leverage/collateral_leverage';
 import { pages } from './portfolioConstants';
-// import { useStyles, PrettoSlider } from './styles';
 import './portfolioStyles';
 
 function Portfolio() {
@@ -12,7 +11,6 @@ function Portfolio() {
       className="portfolioWrapper"
       style={{
         display: "grid",
-        // gridTemplateColumns: 'repeat(2, 1fr)',
         gap: "15px",
         gridTemplateRows: "auto",
         gridTemplateAreas: `

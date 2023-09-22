@@ -1,62 +1,12 @@
-// import React from "react";
-// import { Typography } from "@material-ui/core";
-// import Button from '@mui/material/Button';
-// import Canvas from "../components/canvas"
-// import { ReactNotifications } from 'react-notifications-component'
 import StockChart from "../components/stockChart"
 import BoxComponent from "../components/common/box"
-// import FeedbackComponent from "../layout/feedback"
-// import InternalMenu from "../components/common/internalMenu";
-// import CustomizedTables from "../components/common/dataGrid/dataTable";
 import LabTabs from "../components/common/dataGrid/tabs"
 import {
-  // Grid,
-  // Paper,
-  // Typography,
   Box,
-  // Container,
-  // Button,
-  // ButtonBase,
   Slider,
   styled,
 } from "@mui/material"
-import { makeStyles, 
-        //  withStyles 
-        } from "@material-ui/core/styles"
-
-// import Highchart from '../components/common/highchart/highchart';
-// import HighchartReact from '../components/common/highchart-react';
-
-// import Counter from '../features/counter/counter'
-// import { grid } from "@mui/system";
-// import CollateralLeverage from "../constants";
-
-// const StyledPaper = styled(Paper)(({ theme }) => ({
-//   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#170010ff',
-//   ...theme.typography.body2,
-//   padding: theme.spacing(2),
-//   maxWidth: 400,
-//   color: theme.palette.text.primary,
-// }));
-
-// const Formats = styled.div`
-// margin-left: 0px;
-// padding:12px;
-// background-color: ${gray.brightest};
-// border-radius: 20px;
-// width: ${props => props.isFullWidth ? '100%' : '59%'}
-// & select {
-// height: 31px;
-// padding: 0;
-// margin-left: 12px;
-// }
-// `;
-
-// declare namespace JSX {
-//   interface IntrinsicElements {
-//     [elemName: string]: any;
-//   }
-// }
+import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles((theme) => ({
   // root: {
@@ -70,13 +20,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "13px",
   },
 }));
-
-// const CustomBox = styled(BoxComponent)({
-//   // your custom styles go here
-//   width: "50%",
-//   justifySelf: "center",
-// });
-//as typeof BoxComponent;
 
 const marks = [
   {
@@ -105,8 +48,6 @@ const PrettoSlider = styled(Slider)({
     border: "none",
   },
   "& .MuiSlider-thumb": {
-    // height: 15,
-    // width: 15,
     backgroundColor: "#ff31b9ff",
     border: "2px solid currentColor",
     "&:focus, &:hover, &.Mui-active, &.Mui-focusVisible": {
@@ -126,11 +67,8 @@ const PrettoSlider = styled(Slider)({
     fontSize: 12,
     background: "unset",
     padding: 0,
-    // width: 32,
-    // height: 32,
     borderRadius: "50% 50% 50% 0",
     backgroundColor: "#757575",
-    // color: '#ffffff',
     color: "#cccccc",
     transformOrigin: "bottom left",
     transform: "translate(50%, -100%) rotate(-45deg) scale(0)",
@@ -170,7 +108,6 @@ function Portfolio() {
         className="portfolioWrapper"
         style={{
           display: "grid",
-          // gridTemplateColumns: 'repeat(2, 1fr)',
           gap: "15px",
           gridTemplateRows: "auto",
           gridTemplateAreas: `
@@ -183,16 +120,7 @@ function Portfolio() {
           maxWidth: "100vw",
         }}
       >
-                {/* <ReactNotifications /> */}
-        {/* <Canvas /> */}
         <StockChart />
-        {/* <Counter /> */}
-        {/* <div className="graph"> <Button variant="outlined" sx={{ my: 2, color: 'white', display: 'block' }}> Connect Wallet</Button></div> */}
-        {/* <div className="collateral-leverage"><Button variant="outlined" sx={{ my: 2, color: 'white', display: 'block' }}> Connect Wallet</Button></div> */}
-        {/* <BoxComponent>Collateral & Leverage, tralala, eh sure rah ykoun website bi jannine :)
-        Awesome ! Awesomeeeeeeee ... Oh lala, let's do it !
-      </BoxComponent> */}
-
         <Box
           sx={{
             gridArea: "sidebar",
@@ -206,8 +134,6 @@ function Portfolio() {
             "& > .MuiBox-root > .MuiBox-root": {
               p: 1,
               borderRadius: 0,
-              // fontSize: '0.875rem',
-              // fontWeight: '700',
             },
           }}
         >
@@ -228,12 +154,7 @@ function Portfolio() {
         "left8 right8"
         "title2 title2"
         "footer footer"`,
-              // padding: '25px 80px',
               padding: { xs: "25px 15px", md: "25px 73px" },
-              // margin: 'auto',
-              // border: '1px solid #ff31b9ff',
-              // borderRadius: 0,
-              // color: '#ff31b9ff',
             }}
           >
             <Box
@@ -423,99 +344,19 @@ function Portfolio() {
                   fontSize: "13px",
                 }}
                 disabled
-                // step={1}
-                // marks
-                // min={0}
-                // max={100}
-                // valueLabelDisplay="on"
-                // aria-label="Custom marks"
                 aria-label="Always visible"
                 aria-labelledby="discrete-slider-always"
-                // defaultValue={20}
                 getAriaValueText={valuetext}
                 step={10}
-                // valueLabelDisplay="auto"
                 valueLabelDisplay="on"
                 marks={marks}
-                // size="small"
                 classes={{ markLabel: classes.mark }}
               />
             </Box>
           </Box>
         </Box>
 
-        {/* <InternalMenu /> */}
         <LabTabs id="portfolio-dataGrid" pages={pages} />
-        {/* <iframe src="https://codesandbox.io/embed/react-ts-9dgdnl?fontsize=14&hidenavigation=1&theme=dark"
-     style={{width:'100%', height:'500px', border:0, borderRadius: '4px', overflow:'hidden'}}
-     title="React TS"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe> */}
-
-         {/* <Highchart />  */}
-        {/* <HighchartReact />  */}
-
-
-        {/* <Paper
-        sx={{
-          p: 2,
-          margin: 'auto',
-          width: '100%',
-          border: '1px solid #ff31b9ff',
-          borderRadius: 0,
-          color: '#ff31b9ff',
-          backgroundColor: (theme) =>
-            theme.palette.mode === 'dark' ? '#1A2027' : '#170010ff'
-        }}
-      >
-        <Grid container spacing={2} sx={{ margin: 0 }}>
-          <Grid item xs={12} sm container sx={{ padding: 0, margin: 0 }}>
-            <Grid spacing={1} container item xs={12} sx={{ justifyContent: 'center', padding: 0 }}>
-              <BoxComponent>
-                Collateral & Leverage
-              </BoxComponent>
-            </Grid>
-            <Grid item xs container direction="column" spacing={2} sx={{ padding: 0, margin: 0 }}>
-              <Grid item xs>
-                <Typography gutterBottom variant="subtitle1" component="div">
-                  Standard license
-                </Typography>
-                <Typography variant="body2" gutterBottom>
-                  Full resolution 1920x1080 • JPEG
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  ID: 1030114
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Typography sx={{ cursor: 'pointer' }} variant="body2">
-                  Remove
-                </Typography>
-              </Grid>
-            </Grid>
-            <Grid item>
-              <Typography variant="subtitle1" component="div">
-                $19.00
-              </Typography>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Paper> */}
-
-        {/* <div className="stockData">
-          <Button variant="outlined" sx={{
-            my: 2,
-            color: '#ff31b9ff',
-            display: 'block',
-            borderColor: '#ff31b9ff',
-            '&:hover': {
-              borderColor: '#951369'
-            },
-          }}>
-            Connect Wallet
-          </Button>
-        </div> */}
       </div>
   );
 }

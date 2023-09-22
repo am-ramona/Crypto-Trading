@@ -17,6 +17,7 @@ const plugins = [
     },
     'icons',
   ],
+  {comments: false}
 ];
 
 module.exports = {plugins};
