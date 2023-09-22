@@ -16,45 +16,6 @@ interface Column {
   format?: (value: number) => string;
 }
 
-// const columns: Column[] = [
-//   { id: 'price', label: 'Price (USDC)'},
-//   { id: 'size', label: 'Size (ETH)'},
-//   {
-//     id: 'time',
-//     label: 'Time',
-//     // minWidth: 170,
-//     // align: 'right',
-//     // format: (value: number) => value.toLocaleString('en-US'),
-//   },
-//   {
-//     id: 'size',
-//     label: 'Size (ETH)',
-//     // minWidth: 170,
-//     // align: 'right',
-//     // format: (value: number) => value.toLocaleString('en-US'),
-//   },
-//   { id: 'price', 
-//     label: 'Price (USDC)', 
-//     // minWidth: 170 
-//   },
-//   {
-//     id: 'size',
-//     label: 'Size (ETH)',
-//     // minWidth: 170,
-//     // align: 'right',
-//     // format: (value: number) => value.toLocaleString('en-US'),
-//   }
-// //     align: 'right',
-// //     format: (value: number) => value.toFixed(2),
-// //   },
-// ];
-
-// interface Data {
-//   price: string;
-//   size: string;
-//   time: string;
-// }
-
 interface recentTradesData {
     price: string;
     size: string;
@@ -69,26 +30,11 @@ interface liquidityData {
     [key: string]: any;
   }
 
-// function createData(
-//   name: string,
-//   code: string,
-//   population: number,
-//   size: number,
-// ): Data {
-//   const density = population / size;
-//   return { name, code, population, size, density };
-// }
-
 function createData(
     price: string,
     size: string,
     time: string
   ) : recentTradesData {
-    //{
-    // const density = population / size;
-    // const liquiditySizeBefore = size
-    // const liquidityPrice = price
-    // const liquiditySize = size
     return { price, size, time };
   }
 
@@ -97,11 +43,6 @@ function createDataLiquidity(
     price: string,
     sizeAfter: string
   ) : liquidityData {
-    //{
-    // const density = population / size;
-    // const liquiditySizeBefore = size
-    // const liquidityPrice = price
-    // const liquiditySize = size
     return { size, price, sizeAfter };
   }
 
@@ -131,9 +72,7 @@ const liquidityRows = [
 export default function RecentTradesLiquidityTable({columns, cell, gridArea, height}: any) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-//   console.log('columns', columns)
   const rows : recentTradesData[] | liquidityData[] = cell === 'Recent Trades' ? recentTradeRows : liquidityRows
-//   console.log('RecentTradesLiquidityTable props', props)
 
   const handleChangePage = (event: unknown, newPage: number) => {
     setPage(newPage);
@@ -153,14 +92,10 @@ export default function RecentTradesLiquidityTable({columns, cell, gridArea, hei
               <TableCell align="center" colSpan={3} sx={{  color: '#cccccc', fontSize: '13px', background: '#170010ff' }}>
                 {cell}
               </TableCell>
-              {/* <TableCell align="center" colSpan={3}>
-                Liquidity
-              </TableCell> */}
             </TableRow>
             <TableRow>
               {columns.map((column: Column) => (
                 <TableCell
-                //   key={column.id}
                   align={column.align}
                   style={{ top: 57, minWidth: column.minWidth, color: '#cccccc', fontSize: '13px', background: '#170010ff' }}
                 >

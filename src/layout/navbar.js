@@ -1,15 +1,11 @@
-import React from "react";
 import {
-  // AppBar,
   Toolbar,
-  // CssBaseline,
   Typography,
   makeStyles,
   useTheme,
   useMediaQuery,
 } from "@material-ui/core";
 import { AppBar } from '@mui/material';
-// import { Link } from "react-router-dom";
 import DrawerComponent from "./drawer";
 
 const useStyles = makeStyles((theme) => ({
@@ -40,12 +36,8 @@ function Navbar() {
 
   return (
     <>
-      {/* <AppBar position="static"> */}
-      {/* <CssBaseline /> */}
-
       {isMobile ? (
         <AppBar position="static" sx={{ marginBottom: '15px' }}>
-          {/* <CssBaseline /> */}
           <Toolbar>
             <Typography variant="h4" className={classes.logo}>
               Logo
@@ -54,23 +46,8 @@ function Navbar() {
           </Toolbar>
         </AppBar>
       ) : (<>
-        {/* <div className={classes.navlinks}> */}
-        {/* <Link to="/perpetuals" className={classes.link}>
-              Perpetuals
-            </Link>
-            <Link to="/portfolio" className={classes.link}>
-              Portfolio
-            </Link>
-            <Link to="/dashboard" className={classes.link}>
-              Dashboard
-            </Link>
-            <Link to="/docs" className={classes.link}>
-              Docs
-            </Link> */}
-        {/* </div> */}
       </>
       )}
-      {/*  </AppBar>*/}
     </>
   );
 }

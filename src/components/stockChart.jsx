@@ -45,25 +45,11 @@ class StockChart extends Component {
                 });
             });
 
-        //    var canvas = document.getElementById("canvasjs-react-stockchart-container-19");
-        // // var canvas = this.myRef.current;
-        // console.log('CanvasJS', CanvasJS)
-        // const ctx = CanvasJS.getContext('2d');
-        // var context = CanvasJSStockChart.getContext('2d');
-        // context.clearRect(0, 0, CanvasJSStockChart.width, CanvasJSStockChart.height); //clear html5 canvas
     }
 
     render() {
         const options = {
-            theme: 'dark1',    // "light1", "light2", "dark1", "dark2"
-            // title: {
-            //     text: 'React StockChart with Date-Time Axis',
-            // },
-            // subtitles: [
-            //     {
-            //         text: 'Price-Volume Trend',
-            //     },
-            // ],
+            theme: 'dark1',  
             charts: [
                 {
                     axisX: {
@@ -144,31 +130,6 @@ class StockChart extends Component {
             id: 'EscherStockChart',
         };
 
-        // var chart = new CanvasJS.Chart("chartContainer", {
-        //     title: {
-        //       text: "Setting ID for Chart Canvas"
-        //   },
-        //     data: [
-        //     {
-        //         type: "column",
-        //         dataPoints: [
-        //             { x: 10, y: 71 },
-        //             { x: 20, y: 55 },
-        //             { x: 30, y: 50 },
-        //             { x: 40, y: 65 },
-        //             { x: 50, y: 95 },
-        //             { x: 60, y: 68 },
-        //             { x: 70, y: 28 },
-        //             { x: 80, y: 34 },
-        //             { x: 90, y: 14 }
-        //         ]
-        //     }					
-        //     ]
-        // });
-        
-        // chart.canvas.setAttribute("id", "chartCanvas");
-        // chart.render();
-
         return (
             <div>
                 <div>
@@ -181,7 +142,6 @@ class StockChart extends Component {
                             // ref={this.myRef} 
                             containerProps={containerProps}
                             options={options}
-                        /* onRef = {ref => this.chart = ref} */
                         /></>}
                 </div>
             </div>

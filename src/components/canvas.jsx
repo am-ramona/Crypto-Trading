@@ -2,13 +2,6 @@ import React, { Component } from "react";
 import CanvasJSReact from "../assets/libraries/canvasjs.stock.react";
 var CanvasJSStockChart = CanvasJSReact.CanvasJSStockChart;
 
-// interface CanvasProps {
-// name: string;
-// age: number;
-// country: string;
-// children?: React.ReactNode; // 👈️ for demo purposes
-//   }
-
 class Canvas extends Component {
   constructor(props) {
     super(props);

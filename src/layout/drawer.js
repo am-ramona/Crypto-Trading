@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import {
-  // Divider,
-  // Drawer,
   IconButton,
-  // List,
-  // ListItem,
-  // ListItemText,
   makeStyles,
 } from "@material-ui/core";
 import { Drawer, Divider, List, ListItem, ListItemText } from "@mui/material";
@@ -20,12 +15,7 @@ const useStyles = makeStyles(() => ({
   },
   icon: {
     color: "white",
-  },
-  // styles: {
-  //   backgroundColor: "#170010ff",
-  //   color: "#ff31b9ff",
-  //   border: "1px solid #ff31b9ff",
-  // },
+  }
 }));
 
 function DrawerComponent() {
@@ -35,15 +25,6 @@ function DrawerComponent() {
   return (
     <>
       <Drawer
-        // sx={{
-        //   // width: drawerWidth,
-        //   flexShrink: 0,
-        //   '& .MuiDrawer-paper': {
-        //     backgroundColor: "#170010ff",
-        //     color: "#ff31b9ff",
-        //     border: "1px solid #ff31b9ff",
-        //   },
-        // }}
         sx={{
           "& .MuiPaper-root": {
             backgroundColor: "#170010ff",
@@ -51,16 +32,6 @@ function DrawerComponent() {
             border: "1px solid #ff31b9ff",
           },
         }}
-        // PaperProps={{
-        //   sx: {
-        //     width: 100,
-        //     "& .MuiPaper-root": {
-        //       backgroundColor: "#170010ff",
-        //       color: "#ff31b9ff",
-        //       border: "1px solid #ff31b9ff",
-        //     }
-        //   }
-        // }}
         open={openDrawer}
         onClose={() => setOpenDrawer(false)}
       >

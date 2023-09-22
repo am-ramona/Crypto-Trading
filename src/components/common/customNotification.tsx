@@ -27,8 +27,6 @@ export default function CustomContentRenderer(direction:string, label:Perpetuals
         style={{ width: "100%" }}
       >
         <div className="rnc__notification-item rnc__notification-item--info">
-          {/* <div className="rnc__notification-content"> */}
-          {/* <div className="rn"></div> */}
           <div className="rnc__notification-content">
             <div className="rnc__notification-close-mark"></div>
             <Typography className="rnc__notification-message" sx={{ fontSize: "13px", color: "#ffffff" }}>
@@ -42,7 +40,6 @@ export default function CustomContentRenderer(direction:string, label:Perpetuals
               <Typography sx={{ fontSize: "10px", color: "#ffffff", display: 'inline-block' }}>
                 View transaction &nbsp;
               </Typography>
-              {/* <OpenInNewIcon fontSizeSmall /> */}
                <SvgIcon fontSize="inherit" 
                         color="inherit" 
                         sx={{ verticalAlign: 'middle' }} 
@@ -51,17 +48,7 @@ export default function CustomContentRenderer(direction:string, label:Perpetuals
                 />
             </div>
           </div>
-          {/* <Typography
-            className="notification-message"
-            sx={{ fontSize: "13px", color: "#cccccc" }}
-          >
-            Opened {direction} Position {perpetualsMarketValue.label}
-          </Typography> */}
         </div>
-        {/* </div> */}
-        {/* <div className="notification__custom-icon">
-          <Typography>View transaction</Typography> <OpenInNewIcon />
-        </div> */}
       </div>
     );
   }

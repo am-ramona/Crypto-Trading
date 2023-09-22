@@ -1,75 +1,15 @@
-import React, { 
-      //  useEffect
-      } from "react";
-// import { css } from "@emotion/react";
 import BoxComponent from "./box";
-// import ComboBox from "./comboBox";
 import CustomizedTables from "./dataGrid/dataTable";
 import {
-  // Grid,
   TextField,
-  // Dialog,
-  // DialogActions,
-  // DialogContent,
-  // DialogTitle,
-  // InputLabel,
-  // OutlinedInput,
-  // MenuItem,
-  // FormControl,
   Paper,
   Typography,
   Box,
-  // Container,
   Button,
-  // ButtonBase,
   Slider,
-  styled,
-  // Divider,
-  // Stack,
-  // Modal,
+  styled
 } from "@mui/material";
-// import Select, 
-//        { SelectChangeEvent } from "@mui/material/Select";
-import { makeStyles, 
-        //  withStyles 
-        } from "@material-ui/core/styles";
-
-// import { grid } from "@mui/system";
-// import CollateralLeverage from "../constants";
-
-// const StyledPaper = styled(Paper)(({ theme }) => ({
-//   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#170010ff',
-//   ...theme.typography.body2,
-//   padding: theme.spacing(2),
-//   maxWidth: 400,
-//   color: theme.palette.text.primary,
-// }));
-
-// const Formats = styled.div`
-// margin-left: 0px;
-// padding:12px;
-// background-color: ${gray.brightest};
-// border-radius: 20px;
-// width: ${props => props.isFullWidth ? '100%' : '59%'}
-// & select {
-// height: 31px;
-// padding: 0;
-// margin-left: 12px;
-// }
-// `;
-
-// declare namespace JSX {
-//   interface IntrinsicElements {
-//     [elemName: string]: any;
-//   }
-// }
-
-/*** Types & Interfaces ***/
-// interface PerpetualsMarketsType {
-//   label: string;
-//   year?: number;
-//   id?: number;
-// }
+import { makeStyles } from "@material-ui/core/styles";
 
 interface OrderCreationProps {
   orderCreationPanel: Array<any>;
@@ -85,12 +25,6 @@ interface OrderCreationProps {
 /*** End ***/
 
 const useStyles = makeStyles((theme) => ({
-  // root: {
-  //   width: 300
-  // },
-  // margin: {
-  //   height: theme.spacing(3)
-  // },
   mark: {
     color: "#ff31b9ff !important",
   },
@@ -104,32 +38,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
-// const CustomBox = styled(BoxComponent)({
-//   // your custom styles go here
-//   width: "50%",
-//   justifySelf: "center",
-// });
-//as typeof BoxComponent;
-
-// const marks = [
-//   {
-//     value: 0,
-//     label: "0%",
-//   },
-//   // {
-//   //   value: 20,
-//   //   label: '20°C',
-//   // },
-//   // {
-//   //   value: 37,
-//   //   label: '37°C',
-//   // },
-//   {
-//     value: 100,
-//     label: "100%",
-//   },
-// ];
 
 const leverageMarks = [
   {
@@ -149,99 +57,6 @@ const leverageMarks = [
     label: "25.0x",
   },
 ];
-
-// const PrettoSlider = styled(Slider)({
-//   color: "#ff31b9ff",
-//   height: 2,
-//   fontSize: "12px",
-//   "& .MuiSlider-track": {
-//     border: "none",
-//   },
-//   "& .MuiSlider-thumb": {
-//     // height: 12,
-//     // width: 12,
-//     backgroundColor: "#ff31b9ff",
-//     border: "2px solid currentColor",
-//     "&:focus, &:hover, &.Mui-active, &.Mui-focusVisible": {
-//       boxShadow: "inherit",
-//     },
-//     "&:before": {
-//       display: "none",
-//     },
-//   },
-//   "& .Mui-disabled, &.Mui-disabled": {
-//     color: "#ff31b9ff",
-//     cursor: "not-allowed",
-//     pointerEvents: "auto",
-//   },
-//   "& .MuiSlider-valueLabel": {
-//     lineHeight: 1.2,
-//     fontSize: 12,
-//     background: "unset",
-//     padding: 0,
-//     width: 32,
-//     height: 32,
-//     borderRadius: "50% 50% 50% 0",
-//     backgroundColor: "#757575",
-//     color: "#ffffff",
-//     transformOrigin: "bottom left",
-//     transform: "translate(50%, -100%) rotate(-45deg) scale(0)",
-//     "&:before": { display: "none" },
-//     "&.MuiSlider-valueLabelOpen": {
-//       transform: "translate(50%, -100%) rotate(-45deg) scale(1)",
-//     },
-//     "& > *": {
-//       transform: "rotate(45deg)",
-//     },
-//   },
-// });
-
-// const ComboBoxStyled = styled(ComboBox)`
-//   grid-area: market;
-// `;
-
-// const InfoDisplayStyled = styled(Box)`
-//   grid-area: mainTop;
-//   color: #ff31b9ff;
-//   width: 100%;
-//   max-width: 100vw;
-//   height: 52px;
-//   margin: auto;
-//   border: 1px solid #ff31b9ff;
-//   border-radius: 0;
-// `;
-
-// const Item = styled(Paper)`
-//   text-align: center;
-//   border: 0;
-//   background-color: transparent;
-//   color: #ff31b9ff;
-
-//   &:first-of-type {
-//     padding: 0 7px;
-//   }
-
-//   &:not(:first-of-type) {
-//     flex-grow: 1;
-//     flex-basis: 0;
-//   }
-// `;
-
-// function valuetext(value: number) {
-//   return `${value}%`;
-// }
-
-// const style = {
-//   position: "absolute" as "absolute",
-//   top: "50%",
-//   left: "50%",
-//   transform: "translate(-50%, -50%)",
-//   width: 400,
-//   bgcolor: "background.paper",
-//   border: "2px solid #000",
-//   boxShadow: 24,
-//   p: 4,
-// };
 
 const ReviewOrder = styled("div")`
   display: grid;
@@ -274,12 +89,6 @@ const ButtonStyled = styled(Button)`
   }
 `;
 
-// const perpetualsMarkets: readonly PerpetualsMarketsType[] = [
-//   // const perpetualsMarkets = [
-//   { label: "BTC-PERP", id: 1 },
-//   { label: "ETH-PERP", id: 2 },
-// ];
-
 let marketPrice: number = 41260.5;
 // let freeMargin: number = 100000;
 
@@ -294,111 +103,11 @@ const OrderCreation = ({
   updateUsdcValue,
   updateLeverageValue,
 }: OrderCreationProps) => {
-  // const [ direction,
-  // usdcValue,
-  // btcValue,
-  // leverageValue ] = props
   const classes = useStyles();
-  // const [open, setOpen] = React.useState(false);
-  // const [perpetualsMarketValue, setPerpetualsMarketValue] =
-  //   React.useState<PerpetualsMarketsType>(perpetualsMarkets[0]);
-  // const [directionn, setDirection] = React.useState<string | undefined>(
-  //   direction
-  // );
-  // const [usdcValuee, setUsdcValue] = React.useState<number | undefined>(
-  //   usdcValue
-  // );
-  // const [btcValuee, setBtcValue] = React.useState<number | undefined>(btcValue);
-  // const [leverageValuee, setLeverageValue] = React.useState<
-  //   number | number[] | undefined
-  // >(leverageValue);
-  // const [minLeverageValue, setMinLeverageValue] = React.useState<number>(0);
-  // const [maxLeverageValue, setMaxLeverageValue] = React.useState<number>(25);
-  // const [age, setAge] = React.useState<number | string>("");
-
-  // useEffect(() => {
-  //   // console.log("perpetualsMarketValue.label", perpetualsMarketValue.label);
-  // }, []);
-
-  // console.log("orderCreation orderCreationPanel", orderCreationPanel);
-  // console.log(
-  //   "orderCreation orderCreationPanel.slice",
-  //   orderCreationPanel.slice(1, orderCreationPanel.length)
-  // );
-  // console.log(
-  //   "orderCreation orderCreationPanel.slice length",
-  //   orderCreationPanel.slice(1, orderCreationPanel.length).length
-  // );
-
-  // const handleOpen = () => setOpen(true);
-  // const handleClose = () => setOpen(false);
-  // const [open, setOpen] = React.useState(false);
-
-  // const handleChange = (event: SelectChangeEvent<typeof age>) => {
-  //   setAge(Number(event.target.value) || "");
-  // };
-
-  // const handleLeverageChange = (event: Event, newValue: number | number[]) => {
-  //   // if (typeof newValue === 'number') {
-  //   //   setLeverageValue(newValue);
-  //   // }
-  //   // console.log("in function handleLeverageChange");
-  //   // console.log(
-  //   //   "in function handleLeverageChange leverageValue",
-  //   //   leverageValue
-  //   // );
-  //   // if (leverageValue) {
-  //   // console.log("in function handleLeverageChange leverageValue");
-  //   // console.log("in function handleLeverageChange newValue", newValue);
-  //   updateLeverageValue(newValue as number);
-  //   // }
-  // };
-
-  // const handleClickOpen = () => {
-  //   setOpen(true);
-  // };
-
-  // const updateValue = (value: any): void => {
-  //   setPerpetualsMarketValue(value);
-  // };
-
-  //   const onKeyPressed = (e: any) => {
-  //     if (!/[0-9]/.test(e.key)) {
-  //       e.preventDefault();
-  //     }
-  //     // console.log(e.keyCode);
-  //     setUsdcValue(e.target.value / marketPrice);
-
-  //     console.log("value is:", e.target.value);
-  //     console.log(e.target.value);
-  //     // setUsdcValue
-  //     // return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(e.code) ? true : !isNaN(Number(e.key)) && e.code!=='Space'
-  //   };
-
-  //   const calculateUsdcValue = (percentage: number, e: any) => {
-  //     console.log("calculateUsdcValue", percentage * freeMargin);
-  //     let newValue =
-  //       leverageValue + percentage.valueOf() * (maxLeverageValue - leverageValue);
-  //     handleLeverageChange(e, newValue);
-  //     setUsdcValue(percentage * freeMargin);
-  //     setBtcValue((percentage * freeMargin) / marketPrice);
-  //   };
-
-  // const handleClose = (
-  //   event: React.SyntheticEvent<unknown>,
-  //   success?: string,
-  //   reason?: string
-  // ) => {
-  //   if (reason !== "backdropClick") {
-  //     setOpen(false);
-  //   }
-  // };
 
   function valueLabelFormat(value: number) {
     return `${value}.00x`;
   }
-
-
 
   return (
     <ReviewOrder>
@@ -415,9 +124,7 @@ const OrderCreation = ({
           boxSizing: "border-box",
           "& > .MuiBox-root > .MuiBox-root": {
             p: 1,
-            borderRadius: 0,
-            // fontSize: '0.875rem',
-            // fontWeight: '700',
+            borderRadius: 0
           },
         }}
       >
@@ -433,12 +140,7 @@ const OrderCreation = ({
       "marketSize"
       "leverage"
       "marketData"`,
-            // padding: '25px 80px',
-            padding: { xs: "25px 15px", md: "15px 15px" },
-            // margin: 'auto',
-            // border: '1px solid #ff31b9ff',
-            // borderRadius: 0,
-            // color: '#ff31b9ff',
+            padding: { xs: "25px 15px", md: "15px 15px" }
           }}
         >
           <div
@@ -502,12 +204,6 @@ const OrderCreation = ({
             >
               Order Type
             </Typography>
-            {/* <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "auto auto",
-                }}
-              > */}
             <BoxComponent sx={{ fontSize: "12px", gridArea: "c" }}>
               Market
             </BoxComponent>
@@ -530,7 +226,6 @@ const OrderCreation = ({
                 $ 41,260.5
               </Typography>
             </BoxComponent>
-            {/* </div> */}
           </Paper>
 
           <Paper
@@ -562,10 +257,8 @@ const OrderCreation = ({
               <BoxComponent
                 sx={{ fontSize: "12px", gridArea: "a", color: "#cccccc" }}
               >
-                {/* {btcValuee} */}
                 <TextField
                   id="BTC-size"
-                  // label="Number"
                   type="number"
                   InputLabelProps={{
                     shrink: true,
@@ -594,7 +287,6 @@ const OrderCreation = ({
               <BoxComponent
                 sx={{ fontSize: "12px", gridArea: "c", color: "#cccccc" }}
               >
-                {/* {usdcValuee && usdcValuee} */}
                 <TextField
                   id="USDC-size"
                   // label="Number"
@@ -659,7 +351,6 @@ const OrderCreation = ({
               padding: "0",
             }}
           >
-            {/* <Box sx={{ gridArea: "leverage", padding: "0 8px" }}> */}
             <Typography
               variant="inherit"
               component="div"
@@ -679,23 +370,15 @@ const OrderCreation = ({
                 paddingBottom: "0",
               }}
               step={1}
-              // marks
               min={0}
               max={25}
-              // valueLabelDisplay="on"
-              // aria-label="Custom marks"
               aria-label="Leverage"
               aria-labelledby="leverage-market"
               getAriaValueText={valueLabelFormat}
               valueLabelFormat={valueLabelFormat}
-              // defaultValue={20}
-              // getAriaValueText={"tralala"}
-              // aria-valuetext={"tralala"}
               valueLabelDisplay="auto"
               marks={leverageMarks}
-              // size="small"
               classes={{ markLabel: classes.hiddenMark }}
-            // onChange={handleLeverageChange}
             />
           </Paper>
 
@@ -710,9 +393,7 @@ const OrderCreation = ({
               borderRadius: 0,
               "& > .MuiBox-root > .MuiBox-root": {
                 p: 1,
-                borderRadius: 0,
-                // fontSize: '0.875rem',
-                // fontWeight: '700',
+                borderRadius: 0
               },
             }}
           >
@@ -728,12 +409,7 @@ const OrderCreation = ({
       "left3 right3"
       "left4 right4"
       "left5 right5"
-`,
-                // padding: { xs: "25px 15px", md: "25px 23px" },
-                // margin: 'auto',
-                // border: '1px solid #ff31b9ff',
-                // borderRadius: 0,
-                //, color: '#ff31b9ff',
+`
               }}
             >
               <Box
@@ -855,9 +531,7 @@ const OrderCreation = ({
           boxSizing: "border-box",
           "& > .MuiBox-root > .MuiBox-root": {
             p: 1,
-            borderRadius: 0,
-            // fontSize: '0.875rem',
-            // fontWeight: '700',
+            borderRadius: 0
           },
         }}
       >
@@ -879,11 +553,7 @@ const OrderCreation = ({
       "title2 title2"
       "footer footer"
       "note note"`,
-            padding: { xs: "25px 15px", md: "15px 15px" },
-            // margin: 'auto',
-            // border: '1px solid #ff31b9ff',
-            // borderRadius: 0,
-            // color: '#ff31b9ff',
+            padding: { xs: "25px 15px", md: "15px 15px" }
           }}
         >
           <Box
