@@ -7,10 +7,6 @@ import {
   Route,
   // Navigate,
 } from "react-router-dom";
-// import 'animate.css/animate.compat.css'
-// import { ReactNotifications } from 'react-notifications-component'
-// import NoMatch from "./noMatch";
-// import logo from './logo.svg';
 import Navbar from "./layout/navbar";
 import EscherMenu from "./layout/resMenu";
 import FeedbackComponent from "./layout/feedback";

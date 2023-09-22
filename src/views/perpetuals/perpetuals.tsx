@@ -73,34 +73,9 @@ const Perpetuals = () => {
   const notifications = useAppSelector((state) => state.notifications);
   const dispatch = useAppDispatch();
 
-  // console.log('notification', notification)
-  // console.log('Perpetuals root notifications', notification)
-  // console.log('iNotificationProps', iNotificationProps)
-  // console.log("selectNotifications", selectNotifications);
-
-  // React.useEffect(() => {
-  //   console.log("perpetualsMarketValue.label", perpetualsMarketValue.label);
-  // }, []);
-
-  // React.useEffect(() => {
-  //   console.log("Perpetuals notifications", notifications);
-  // }, [notifications]);
-
   const handleLeverageChange = React.useCallback(
     (event: Event, newValue: number | number[]) => {
-      // if (typeof newValue === 'number') {
-      //   setLeverageValue(newValue);
-      // }
-      // console.log("in function handleLeverageChange");
-      // console.log(
-      //   "in function handleLeverageChange leverageValue",
-      //   leverageValue
-      // );
-      // if (leverageValue) {
-      // console.log("in function handleLeverageChange leverageValue");
-      // console.log("in function handleLeverageChange newValue", newValue);
       setLeverageValue(newValue as number);
-      // }
     },
     [leverageValue]
   );
@@ -111,7 +86,6 @@ const Perpetuals = () => {
 
   const calculateUsdcValue = React.useCallback(
     (percentage: number, e: any) => {
-      // console.log("calculateUsdcValue", percentage * freeMargin);
       let newValue =
         leverageValue +
         percentage.valueOf() * (maxLeverageValue - leverageValue);
@@ -136,7 +110,6 @@ const Perpetuals = () => {
 
   const updateIsRecentTradesLiquidity = React.useCallback(
     (value: any): void => {
-      // console.log('updateIsRecentTradesLiquidity')
       setIsRecentTradesLiquidity(value);
     },
     [perpetualsMarketValue]
@@ -144,18 +117,11 @@ const Perpetuals = () => {
 
   const CustomContentRenderer = React.useCallback(
     (message: string) => {
-      // console.log('CustomContentRenderer notificationMessage', notificationMessage)
       return (
-        // <div
-        //   className={`notification__custom--success`}
-        //   style={{ width: "100%" }}
-        // >
         <Grid
           className="rnc__notification-item rnc__notification-item--info"
           style={{ width: "100%" }}
         >
-          {/* <div className="rnc__notification-content"> */}
-          {/* <div className="rn"></div> */}
           <Box className="rnc__notification-content">
             <Box
               className="rnc__notification-close-mark"
@@ -182,7 +148,6 @@ const Perpetuals = () => {
               >
                 View transaction &nbsp;
               </Typography>
-              {/* <OpenInNewIcon fontSizeSmall /> */}
               <SvgIcon
                 fontSize="inherit"
                 color="inherit"
@@ -192,12 +157,6 @@ const Perpetuals = () => {
               />
             </Box>
           </Box>
-          {/* <Typography
-              className="notification-message"
-              sx={{ fontSize: "13px", color: "#cccccc" }}
-            >
-              Opened {direction} Position {perpetualsMarketValue.label}
-            </Typography> */}
         </Grid>
       );
     },
@@ -232,97 +191,27 @@ const Perpetuals = () => {
     [leverageValue]
   );
 
-  // const updatePositionsPanel = React.useMemo((positionsPanel: any) => {
-  //   setPositionsPanel(positionsPanel)
-  //   console.log('inside positionsPanelll')
-  //   console.log('positionsPanelll', positionsPanel)}, [positionsPanel]);
-
   const updatePositionsPanel = React.useCallback(
     (positions: any): void => {
-      // console.log("perpetuals positions", positions);
       setPositionsPanel(positions);
-      // console.log("inside positionsPanelll");
-      // console.log("positionsPanelll", positions);
     },
     [positionsPanel]
   );
 
   React.useEffect(() => {
-    //         async function asyncCall() {
-    //       console.log("calling");
-    //       try {
-    //       } catch (e) {
-    //         console.log("Error", e);
-    //         //     if (error instanceof CreationError) {
-    // //         console.error(error) // from creation
-    // //     } else {
-    // //         throw error;
-    // //     }
-    //       } finally {
-    //         console.log("This is done.");
-    //       }
-    //     }
-    //     asyncCall();
     const positionsPanelCloned = [...positionsPanel];
-    // if (positionsPanelCloned[0][0] !== 'Market') return;
-    // const newArray: any = []
     const newPositionsPanel = positionsPanelCloned.map((positionPanel: any) => {
-      // positionPanel.find((element) => {
-      // console.log("join", positionPanel.slice(0, 5).concat(positionPanel[6]));
       return positionPanel.slice(0, 5).concat(positionPanel[6]);
-      // });
     });
-    // newArray.push(positionPanel.slice(0, 5).concat(positionPanel[6]));
-
-    // slice creates a copy of products
-
-    // console.log("newww positionsPanel", positionsPanel);
-    // console.log("newww newPositionsPanel", newPositionsPanel);
-    // console.log("newww positionsPanelCloned", positionsPanelCloned);
     setOrderCreationPanel(newPositionsPanel);
   }, [positionsPanel]);
 
-  // const addNewEntry = (arg: boolean) => {
-  //   console.log('arg', arg)
-  //   if (arg === true) {
-  //     console.log('notifications Opened')
-  //     setNotificationMessage("Opened");
-  //   } else
-  //   setNotificationMessage("Edited");
-  //   // displayNotification();
-  // }
-
-  // const addNewEntry =
-  //       (arg: boolean) => {
-  //         console.log('arg', arg)
-  //   if (arg === true) {
-  //     console.log('notifications Opened')
-  //     setNotificationMessage("Opened");
-  //   } else {
-  //   console.log('notifications Edited')
-  //   setNotificationMessage("Edited");
-  //   }
-  //   setAddNewNotification(true)
-  //   displayNotification();
-  //       }
-
   const addNewEntry = React.useCallback(
     (arg: boolean) => {
-      // console.log("arg", arg);
       if (!timelineLoaded.current && arg === true) {
-        // console.log("notifications Opened");
         displayNotification("Opened");
-        // setNotificationMessage("Opened", (currentNotificationMessage) => {
-        //   console.log('currentNotificationMessage', currentNotificationMessage)
-        //   // displayNotification(currentNotificationMessage);
-        // });
       } else if (!timelineLoaded.current) {
-        // console.log("notifications Edited");
         displayNotification("Edited");
-        // setNotificationMessage("Edited", (currentNotificationMessage) => {
-        //   console.log('currentNotificationMessage', currentNotificationMessage)
-        //   // displayNotification(currentNotificationMessage);
-        // });
       }
       timelineLoaded.current = true;
     },
@@ -331,7 +220,6 @@ const Perpetuals = () => {
 
   const displayNotification = React.useCallback(
     (message: string) => {
-      // console.log("displayNotification direction", direction);
       Store.addNotification({
         // title: "Wonderful!",
         message: "",
@@ -373,73 +261,6 @@ const Perpetuals = () => {
     [CustomContentRenderer, Store, direction, perpetualsMarketValue]
   );
 
-  // useEffect(() => {
-  //   console.log('dN addNewNotification', addNewNotification)
-  //   if ( addNewNotification && addNewNotification !== undefined ) {
-  //     console.log('dN notificationMessage', notificationMessage)
-  //     Store.addNotification({
-  //       // title: "Wonderful!",
-  //       message: '',
-  //       type: "info",
-  //       insert: "top",
-  //       // content: CustomContentRenderer(direction, perpetualsMarketValue),
-  //       content: CustomContentRenderer,
-  //       container: "top-right",
-  //       animationIn: ["animated fadeIn"],
-  //       animationOut: ["animated fadeOut"],
-  //       dismiss: {
-  //         duration: 5000,
-  //         onScreen: false,
-  //         pauseOnHover: true,
-  //         showIcon: true,
-  //         click: true
-  //       },
-  //     });
-
-  //     // const newNotificationAdded = [...notifications];
-  //     // newNotificationAdded.push({
-  //     //   // title: "Wonderful!",
-  //     //   message: '',
-  //     //   type: "info",
-  //     //   insert: "top",
-  //     //   // content: CustomContentRenderer(direction, perpetualsMarketValue),
-  //     //   content: CustomContentRenderer,
-  //     //   container: "top-right",
-  //     //   animationIn: ["animated fadeIn"],
-  //     //   animationOut: ["animated fadeOut"],
-  //     //   dismiss: {
-  //     //     duration: 5000,
-  //     //     onScreen: false,
-  //     //     pauseOnHover: true,
-  //     //     showIcon: true,
-  //     //     click: true
-  //     //   },
-  //     // });
-  //     // setNotifications(newNotificationAdded);
-  //     dispatch(
-  //       incrementByAmount({
-  //         // title: "Wonderful!",
-  //         message: '',
-  //         type: "info",
-  //         insert: "top",
-  //         // content: CustomContentRenderer(direction, perpetualsMarketValue),
-  //         content: CustomContentRenderer,
-  //         container: "top-right",
-  //         animationIn: ["animated fadeIn"],
-  //         animationOut: ["animated fadeOut"],
-  //         dismiss: {
-  //           duration: 5000,
-  //           onScreen: false,
-  //           pauseOnHover: true,
-  //           showIcon: true,
-  //           click: true
-  //         },
-  //       })
-  //     );
-  //     }
-  //   }, [addNewNotification])
-
-  // console.log('Perpetuals direction', direction)
   const handleClose = React.useCallback(
     (
       event: React.SyntheticEvent<unknown>,
@@ -451,25 +272,6 @@ const Perpetuals = () => {
       }
 
       if (success === "success") {
-        // setAnchorEl(anchorEl ? null : event.currentTarget as HTMLElement);
-        // Store.addNotification({
-        //   // title: "Wonderful!",
-        //   message: '',
-        //   type: "info",
-        //   insert: "top",
-        //   // content: CustomContentRenderer(direction, perpetualsMarketValue),
-        //   content: CustomContentRenderer,
-        //   container: "top-right",
-        //   animationIn: ["animated fadeIn"],
-        //   animationOut: ["animated fadeOut"],
-        //   dismiss: {
-        //     duration: 5000,
-        //     onScreen: false,
-        //     pauseOnHover: true,
-        //     showIcon: true,
-        //     click: true
-        //   },
-        // });
 
         setAddNewPosition([
           perpetualsMarketValue.label,
@@ -484,135 +286,10 @@ const Perpetuals = () => {
           "+$0.55",
         ]);
         timelineLoaded.current = false;
-
-        // const newNotificationAdded = [...notifications];
-        // newNotificationAdded.push({
-        //   // title: "Wonderful!",
-        //   message: '',
-        //   type: "info",
-        //   insert: "top",
-        //   // content: CustomContentRenderer(direction, perpetualsMarketValue),
-        //   content: CustomContentRenderer,
-        //   container: "top-right",
-        //   animationIn: ["animated fadeIn"],
-        //   animationOut: ["animated fadeOut"],
-        //   dismiss: {
-        //     duration: 5000,
-        //     onScreen: false,
-        //     pauseOnHover: true,
-        //     showIcon: true,
-        //     click: true
-        //   },
-        // });
-        // setNotifications(newNotificationAdded);
-        // dispatch(
-        //   incrementByAmount({
-        //     // title: "Wonderful!",
-        //     message: '',
-        //     type: "info",
-        //     insert: "top",
-        //     // content: CustomContentRenderer(direction, perpetualsMarketValue),
-        //     content: CustomContentRenderer,
-        //     container: "top-right",
-        //     animationIn: ["animated fadeIn"],
-        //     animationOut: ["animated fadeOut"],
-        //     dismiss: {
-        //       duration: 5000,
-        //       onScreen: false,
-        //       pauseOnHover: true,
-        //       showIcon: true,
-        //       click: true
-        //     },
-        //   })
-        // );
       }
     },
     [addNewPosition, open, direction, btcValue]
   );
-  // (
-  //     event: React.SyntheticEvent<unknown>,
-  //     success?: string,
-  //     reason?: string
-  //   ) => {
-  //     if (reason !== "backdropClick") {
-  //       setOpen(false);
-  //     }
-
-  //     if (success === "success") {
-  //       // setAnchorEl(anchorEl ? null : event.currentTarget as HTMLElement);
-  //       // Store.addNotification({
-  //       //   // title: "Wonderful!",
-  //       //   message: '',
-  //       //   type: "info",
-  //       //   insert: "top",
-  //       //   // content: CustomContentRenderer(direction, perpetualsMarketValue),
-  //       //   content: CustomContentRenderer,
-  //       //   container: "top-right",
-  //       //   animationIn: ["animated fadeIn"],
-  //       //   animationOut: ["animated fadeOut"],
-  //       //   dismiss: {
-  //       //     duration: 5000,
-  //       //     onScreen: false,
-  //       //     pauseOnHover: true,
-  //       //     showIcon: true,
-  //       //     click: true
-  //       //   },
-  //       // });
-  //       setAddNewPosition([
-  //         perpetualsMarketValue.label,
-  //         direction,
-  //         btcValue,
-  //         "$20,660.0",
-  //         "$41,260.0",
-  //         "$40,260.0",
-  //         "$38,260.0",
-  //         "-$38.0",
-  //         "-$2.0",
-  //         "+$0.55",
-  //       ]);
-
-  //       // const newNotificationAdded = [...notifications];
-  //       // newNotificationAdded.push({
-  //       //   // title: "Wonderful!",
-  //       //   message: '',
-  //       //   type: "info",
-  //       //   insert: "top",
-  //       //   // content: CustomContentRenderer(direction, perpetualsMarketValue),
-  //       //   content: CustomContentRenderer,
-  //       //   container: "top-right",
-  //       //   animationIn: ["animated fadeIn"],
-  //       //   animationOut: ["animated fadeOut"],
-  //       //   dismiss: {
-  //       //     duration: 5000,
-  //       //     onScreen: false,
-  //       //     pauseOnHover: true,
-  //       //     showIcon: true,
-  //       //     click: true
-  //       //   },
-  //       // });
-  //       // setNotifications(newNotificationAdded);
-  //       // dispatch(
-  //       //   incrementByAmount({
-  //       //     // title: "Wonderful!",
-  //       //     message: '',
-  //       //     type: "info",
-  //       //     insert: "top",
-  //       //     // content: CustomContentRenderer(direction, perpetualsMarketValue),
-  //       //     content: CustomContentRenderer,
-  //       //     container: "top-right",
-  //       //     animationIn: ["animated fadeIn"],
-  //       //     animationOut: ["animated fadeOut"],
-  //       //     dismiss: {
-  //       //       duration: 5000,
-  //       //       onScreen: false,
-  //       //       pauseOnHover: true,
-  //       //       showIcon: true,
-  //       //       click: true
-  //       //     },
-  //       //   })
-  //       // );
-  //     }
-  //   };
 
   const valuetext = React.useCallback((value: number) => {
     return `${value}%`;
@@ -620,7 +297,6 @@ const Perpetuals = () => {
 
   return (
     <PerpetualsWrapper className="perpetualsWrapper">
-      {/* <ReactNotifications /> */}
       <Box
         sx={{
           gridArea: "left",
@@ -633,8 +309,6 @@ const Perpetuals = () => {
           "& > .MuiBox-root > .MuiBox-root": {
             p: 1,
             borderRadius: 0,
-            // fontSize: '0.875rem',
-            // fontWeight: '700',
           },
         }}
       >
@@ -651,12 +325,7 @@ const Perpetuals = () => {
         "leverage"
         "marketNameType"
         "marketData"`,
-            // padding: '25px 80px',
-            padding: { xs: "25px 15px", md: "14px 23px" },
-            // margin: 'auto',
-            // border: '1px solid #ff31b9ff',
-            // borderRadius: 0,
-            // color: '#ff31b9ff',
+            padding: { xs: "25px 15px", md: "14px 23px" }
           }}
         >
           <ComboBoxStyled updateValue={updateValue} />
@@ -721,12 +390,6 @@ const Perpetuals = () => {
             >
               Order Type
             </Typography>
-            {/* <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "auto auto",
-                  }}
-                > */}
             <BoxComponent sx={{ fontSize: "13px", gridArea: "c" }}>
               Market
             </BoxComponent>
@@ -749,7 +412,6 @@ const Perpetuals = () => {
                 $ 41,260.5
               </Typography>
             </BoxComponent>
-            {/* </div> */}
           </Paper>
 
           <Paper
@@ -778,14 +440,6 @@ const Perpetuals = () => {
               }}
             >
               <BoxComponent sx={{ fontSize: "13px", gridArea: "a" }}>
-                {/* <TextField
-                      id="outlined-number"
-                      label="Number"
-                      type="number"
-                      InputLabelProps={{
-                        shrink: true,
-                      }}
-                    /> */}
                 <TextField
                   id="BTC-size"
                   // label="Number"
@@ -816,21 +470,14 @@ const Perpetuals = () => {
                       e.target.value < 0 ? 0 : e.target.value * marketPrice
                     );
                     setBtcValue(e.target.value < 0 ? 0 : e.target.value);
-
-                    // setUsdcValue(e.target.value * marketPrice);
-                    // setBtcValue(e.target.value);
                   }}
                 />
               </BoxComponent>
               <BoxComponent sx={{ fontSize: "13px", gridArea: "c" }}>
                 <TextField
                   id="USDC-size"
-                  // label="Number"
                   type="number"
                   value={usdcValue && (usdcValue || "")}
-                  // InputLabelProps={{
-                  //   shrink: true,
-                  // }}
                   sx={{
                     "& label, & label.Mui-focused, #USDC-size, & input.MuiFilledInput-input.MuiInputBase-input":
                     {
@@ -891,7 +538,6 @@ const Perpetuals = () => {
               padding: "0",
             }}
           >
-            {/* <Box sx={{ gridArea: "leverage", padding: "0 8px" }}> */}
             <Typography
               variant="inherit"
               component="div"
@@ -911,23 +557,15 @@ const Perpetuals = () => {
                 paddingBottom: "15px",
               }}
               step={1}
-              // marks
               min={0}
               max={25}
-              // valueLabelDisplay="on"
-              // aria-label="Custom marks"
               aria-label="Leverage"
               aria-labelledby="leverage-market"
               getAriaValueText={valueLabelFormat}
               valueLabelFormat={valueLabelFormat}
-              // defaultValue={20}
-              // getAriaValueText={"tralala"}
-              // aria-valuetext={"tralala"}
               valueLabelDisplay="auto"
               marks={leverageMarks}
-              // size="small"
               classes={{ markLabel: classes.hiddenMark }}
-            // onChange={handleLeverageChange}
             />
             <Box
               sx={{
@@ -1017,33 +655,14 @@ const Perpetuals = () => {
 
           <Button
             onClick={handleClickOpen}
-            // onClick={createNotification('info')}
             sx={{
               color: "#ff31b9ff",
               border: "1px solid #ff31b9ff",
               marginRight: "0 !important",
             }}
           >
-            {/* Long BTC-PERP  */}
             {direction} {perpetualsMarketValue.label}
           </Button>
-          {/* <NotificationContainer/> */}
-          {/* <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-              >
-                <Box sx={style}>
-                  <Typography id="modal-modal-title" variant="h6" component="h2">
-                    Text in a modal
-                  </Typography>
-                  <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                    Duis mollis, est non commodo luctus, nisi erat porttitor
-                    ligula.
-                  </Typography>
-                </Box>
-              </Modal> */}
           <Dialog
             BackdropProps={{
               style: { backgroundColor: "rgba(0, 0, 0, 0.75)" },
@@ -1065,43 +684,6 @@ const Perpetuals = () => {
               Review Order
             </DialogTitle>
             <DialogContent sx={{ padding: 0 }}>
-              {/* <Box
-                    component="form"
-                    sx={{ display: "flex", flexWrap: "wrap" }}
-                  > */}
-              {/* <FormControl sx={{ m: 1, minWidth: 120 }}>
-                      <InputLabel htmlFor="demo-dialog-native">Age</InputLabel>
-                      <Select
-                        native
-                        value={age}
-                        onChange={handleChange}
-                        input={
-                          <OutlinedInput label="Age" id="demo-dialog-native" />
-                        }
-                      >
-                        <option aria-label="None" value="" />
-                        <option value={10}>Ten</option>
-                        <option value={20}>Twenty</option>
-                        <option value={30}>Thirty</option>
-                      </Select>
-                    </FormControl>
-                    <FormControl sx={{ m: 1, minWidth: 120 }}>
-                      <InputLabel id="demo-dialog-select-label">Age</InputLabel>
-                      <Select
-                        labelId="demo-dialog-select-label"
-                        id="demo-dialog-select"
-                        value={age}
-                        onChange={handleChange}
-                        input={<OutlinedInput label="Age" />}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
-                      </Select>
-                    </FormControl> */}
               <OrderCreation
                 orderCreationPanel={orderCreationPanel}
                 direction={direction}
@@ -1113,10 +695,8 @@ const Perpetuals = () => {
                 updateUsdcValue={updateUsdcValue}
                 updateLeverageValue={updateLeverageValue}
               />
-              {/* </Box> */}
             </DialogContent>
             <DialogActions>
-              {/* <Button onClick={handleClose}>Cancel</Button> */}
               <ButtonStyled
                 color="inherit"
                 sx={{
@@ -1130,7 +710,6 @@ const Perpetuals = () => {
                 {direction} {perpetualsMarketValue.label}
               </ButtonStyled>
             </DialogActions>
-            {/* <NotificationContainer/>  */}
           </Dialog>
 
           <Box
@@ -1145,8 +724,6 @@ const Perpetuals = () => {
               "& > .MuiBox-root > .MuiBox-root": {
                 p: 1,
                 borderRadius: 0,
-                // fontSize: '0.875rem',
-                // fontWeight: '700',
               },
             }}
           >
@@ -1162,12 +739,7 @@ const Perpetuals = () => {
         "left3 right3"
         "left4 right4"
         "left5 right5"
-  `,
-                // padding: { xs: "25px 15px", md: "25px 23px" },
-                // margin: 'auto',
-                // border: '1px solid #ff31b9ff',
-                // borderRadius: 0,
-                //, color: '#ff31b9ff',
+  `
               }}
             >
               <Box
@@ -1276,66 +848,6 @@ const Perpetuals = () => {
       </Box>
 
       <InfoDisplayStyled>
-        {/* <Grid container spacing={{ xs: 0, md: 0 }}>
-              {/* {Array.from(Array(6)).map((_, index) => (
-                  <Grid item xs={2} key={index}>
-                    <Item>xs=2</Item>
-                  </Grid>
-                ))}
-            {/* <Grid item xs={2}>
-                <Item>$41,260.5 -0.49%</Item>
-              </Grid>
-              <Divider sx={{
-                backgroundColor: '#ff31b9ff'
-              }}
-                orientation="vertical" flexItem />
-              <Grid item xs={2}>
-                <Item>
-                  <Typography variant="caption" display="block" gutterBottom>Index Price</Typography>
-                  <Typography variant="button" display="block" gutterBottom>$41,254.3</Typography>
-                </Item>
-              </Grid>
-              <Divider sx={{
-                backgroundColor: '#ff31b9ff'
-              }}
-                orientation="vertical" flexItem />
-              <Grid item xs={2}>
-                <Item>
-                  <Typography variant="caption" display="block" gutterBottom>8h Funding %</Typography>
-                  <Typography variant="button" display="block" gutterBottom>-0.00212%</Typography>
-                </Item>
-              </Grid>
-              <Divider sx={{
-                backgroundColor: '#ff31b9ff'
-              }}
-                orientation="vertical" flexItem />
-              <Grid item xs={2}>
-                <Item>
-                  <Typography variant="caption" display="block" gutterBottom>Next Funding % </Typography>
-                  <Typography variant="button" display="block" gutterBottom>-0.00212%</Typography>
-                </Item>
-              </Grid>
-              <Divider sx={{
-                backgroundColor: '#ff31b9ff'
-              }}
-                orientation="vertical" flexItem />
-              <Grid item xs={2}>
-                <Item>
-                  <Typography variant="caption" display="block" gutterBottom>24h Volume </Typography>
-                  <Typography variant="button" display="block" gutterBottom> $1.47M</Typography>
-                </Item>
-              </Grid>
-              <Divider sx={{
-                backgroundColor: '#ff31b9ff'
-              }}
-                orientation="vertical" flexItem />
-              <Grid item xs={2}>
-                <Item>
-                  <Typography variant="caption" display="block" gutterBottom>Open Interest</Typography>
-                  <Typography variant="button" display="block" gutterBottom> 79.2 BTC</Typography>
-                </Item>
-              </Grid>
-            </Grid>  */}
         <Stack
           direction="row"
           justifyContent="center"
@@ -1500,37 +1012,11 @@ const Perpetuals = () => {
           </Item>
         </Stack>
       </InfoDisplayStyled>
-
-      {/* <BoxComponent
-            sx={{
-              gridArea: "rightTop",
-              height: "54px",
-              boxSizing: "border-box",
-              "&:hover": { display: "block" },
-            }}
-          >
-            &nbsp;
-            {/* <NotificationContainer/>  
-          </BoxComponent> */}
-
-      {/* <Canvas style={{ gridArea: "main", height: "427px" }} height="472px" /> */}
-      {/* <StockChart style={{ gridArea: "main", height: "427px" }} height="472px" /> */}
-      {/* <ReactHighchart style={{ gridArea: "main", height: "427px" }} height="472px" /> */}
       {isRecentTradesLiquidity ?
         <Stack
           direction="row"
           gridArea="main"
           height="455px"
-          // height="100%"
-          // divider={
-          //   <Divider
-          //     sx={{
-          //       backgroundColor: "#ff31b9ff",
-          //     }}
-          //     orientation="vertical"
-          //     flexItem
-          //   />
-          // }
           spacing={0}
         >
           <RecentTradesLiquidityTable
@@ -1544,28 +1030,14 @@ const Perpetuals = () => {
         </Stack>
         :
         <CryptoChart
-          // style={{ gridArea: "main", height: "427px"}}
-          // height="427px"
           height="455px"
           gridArea="main"
         />
       }
-      {/* <ReactECharts style={{ gridArea: "main", height: "427px" }} height="472px" /> */}
-      {/* <ReactECharts
-  style={{ gridArea: "main", height: "427px" }} 
-    option={option}
-    notMerge={true}
-    lazyUpdate={true}
-    // theme={"theme_name"}
-    // onChartReady={onChartReadyCallback}
-    // onEvents={EventsDict}
-    opts={{renderer: 'svg'}}
-  /> */}
 
       <Box
         sx={{
           gridArea: "sidebar",
-          // height: "425px",
           height: "453px",
           alignSelf: "flex-start",
           width: "100%",
@@ -1575,9 +1047,7 @@ const Perpetuals = () => {
           borderRadius: 0,
           "& > .MuiBox-root > .MuiBox-root": {
             p: 1,
-            borderRadius: 0,
-            // fontSize: '0.875rem',
-            // fontWeight: '700',
+            borderRadius: 0
           },
         }}
       >
@@ -1599,11 +1069,7 @@ const Perpetuals = () => {
         "title2 title2"
         "footer footer"
         "note note"`,
-            padding: { xs: "25px 15px", md: "25px 23px" },
-            // margin: 'auto',
-            // border: '1px solid #ff31b9ff',
-            // borderRadius: 0,
-            // color: '#ff31b9ff',
+            padding: { xs: "25px 15px", md: "25px 23px" }
           }}
         >
           <Box
@@ -1791,20 +1257,12 @@ const Perpetuals = () => {
                 color: "#ff31b9ff",
                 marginBottom: 0,
               }}
-              // step={1}
-              // marks
-              // min={0}
-              // max={100}
-              // valueLabelDisplay="on"
-              // aria-label="Custom marks"
               aria-label="Always visible"
               aria-labelledby="discrete-slider-always"
-              // defaultValue={20}
               getAriaValueText={valuetext}
               step={10}
               valueLabelDisplay="auto"
               marks={marks}
-              // size="small"
               classes={{ markLabel: classes.mark }}
             />
           </Box>

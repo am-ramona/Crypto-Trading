@@ -9,7 +9,6 @@ body {
 }
 
 body {
-  /* padding: 20px; */
   color: #ff31b9ff;
   background-color: #170010ff !important;
 }
@@ -194,26 +193,8 @@ a:hover:active:focus:focus-visible:focus-within:visited:target {
   text-transform: capitalize;
 }
 
-/*-- Portfolio --*/
-/* .portfolioWrapper { */
-/* position: relative;
-  display: grid;
-  display: -ms-grid;
-  /* grid-area: 1 / 1 / span 2 / span 2; */
-/* grid-auto-columns: auto auto; */
-/* grid-template-rows: repeat(2, 1fr);
-  -ms-grid-rows: repeat(2, 1fr);
-  /* grid-auto-flow: column; */
-/* grid-template-areas: "1 2""3 3";
-  grid-template-columns: 62% auto;
-  -ms-grid-columns: 62% auto;
-  grid-gap: 15px;
-  padding: 0 24px;  */
-/* } */
-
 .graph {
   border: 1px solid #ff31b9ff;
-  /* width: 53%; */
   height: 300px;
   display: grid;
   align-content: center;
@@ -224,20 +205,12 @@ a:hover:active:focus:focus-visible:focus-within:visited:target {
   grid-area: main;
   width: 100%;
   max-width: 100vw;
-  /* border: 0.1px solid #ff31b9ff; */
-  /* width: 53%; */
-  /* height: 300px;
-  display: grid;
-  align-content: center;
-  justify-content: center; */
 }
 
 .collateral-leverage {
   grid-area: sidebar;
   border: 1px solid #ff31b9ff;
-  /* width: 13%; */
   height: 300px;
-  /* grid-area: 2; */
   display: grid;
   align-content: center;
   justify-content: center;
@@ -250,21 +223,7 @@ a:hover:active:focus:focus-visible:focus-within:visited:target {
   align-content: center;
   justify-content: center;
   height: 300px;
-  /* grid-row-start: 3;
-  grid-row-end: 4;
-  grid-column-start: 1;
-  grid-column-end: 3; */
 }
-
-/* .feedbackStyles {
-  position: fixed;
-  right: -35px;
-  transform: rotate(270deg);
-  top: 0;
-  bottom: 0;
-  height: 0;
-  margin: auto;
-} */
 
 .MuiTabs-flexContainer.MuiTabs-centered {
   justify-content: space-between;
@@ -274,22 +233,9 @@ div[role="tabpanel"] > .MuiBox-root {
   padding: 15px 0 !important;
 }
 
-/* .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiTableContainer-root.css-11xur9t-MuiPaper-root-MuiTableContainer-root {
-  width: 93vw;
-} */
-
 .MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeMedium.css-av538e-MuiButtonBase-root-MuiIconButton-root {
   border: 0;
 }
-
-/* .MuiTableCell-root.MuiTableCell-head {
-  background-color: transparent !important;
-  color: #ff31b9ff;
-}
-
-.css-11xur9t-MuiPaper-root-MuiTableContainer-root {
-  color: #ff31b9ff;
-} */
 
 .feedbackStyles {
   font-size: 13px;
@@ -311,7 +257,6 @@ div[role="tabpanel"] > .MuiBox-root {
 .chartContainer {
   width: 100%;
   height: 100%;
-  /* max-width: 120px; */
 }
 
 .perpetualsWrapper .rnc__notification-container--top-right,
@@ -326,11 +271,6 @@ div[role="tabpanel"] > .MuiBox-root {
 .rnc__notification-item {
   height: 54px;
 }
-
-/* .rnc__notification-close-mark { */
-/* right: 5px !important;
-  top: 2px !important; */
-/* } */
 
 /* CircularProgress  */
 .MuiCircularProgress-indeterminate {
@@ -348,29 +288,6 @@ div[role="tabpanel"] > .MuiBox-root {
     transform: rotate(360deg);
   }
 }
-
-/* CircularProgress end */
-
-/* div#\:rd\: {
-  display: none;
-} */
-
-/* .elementToFadeInAndOut {
-  width:200px;
-  height: 200px;
-  background: red;
-  -webkit-animation: fadeinout 4s linear forwards;
-  animation: fadeinout 4s linear forwards;
-  opacity: 0;
-} */
-
-/* .fadeIn { animation: fadeIn 5s; } */
-
-/* .animate__fadeIn { */
-/* transition: none !important; */
-
-/* animation: fadeIn 1s !important;  */
-/* } */
 
 @keyframes fadeIn {
   0% {

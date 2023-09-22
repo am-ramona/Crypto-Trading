@@ -1,5 +1,3 @@
-// import React from 'react';
-// import { Navigate, NavigateFunction } from 'react-router-dom';
 import { Portfolio, Perpetuals, Dashboard, Docs, NotFound } from './pages';
 
 // other
