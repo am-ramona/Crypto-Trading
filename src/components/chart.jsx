@@ -1,8 +1,9 @@
 import TradeViewChart from "react-crypto-chart";
-export default function CryptoChart (props) {
+export default function CryptoChart(props) {
   return (
-    <div className="parent" style={{ 
-        overflow: "hidden", ...props}}>
+    <div className="parent" style={{
+      overflow: "hidden", ...props
+    }}>
       <TradeViewChart pair="BTCBUSD"
         interval="5m"
         containerStyle={{
@@ -43,7 +44,7 @@ export default function CryptoChart (props) {
           wickDownColor: "gray",
           wickUpColor: "gray"
         }}
-        // pair="ETHUSDT"
+      // pair="ETHUSDT"
       />
     </div>
   );

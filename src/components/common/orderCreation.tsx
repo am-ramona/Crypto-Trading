@@ -709,7 +709,7 @@ const OrderCreation = ({
               fontSize="10px"
               color="#ff31b9ff"
               align="center">No Open Positions Found</Typography>
-          ) : ( 
+          ) : (
             <CustomizedTables key='1253.0'
               name="orderCreationPositions"
               arr={orderCreationPanel}

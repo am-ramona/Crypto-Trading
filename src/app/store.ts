@@ -8,10 +8,10 @@ export const store = configureStore({
     notifications: notificationsReducer,
   },
   middleware: (getDefaultMiddleware) => // getDefaultMiddleware().concat(logger),
-  getDefaultMiddleware({
-    immutableCheck: false,
-    serializableCheck: false
-  }),
+    getDefaultMiddleware({
+      immutableCheck: false,
+      serializableCheck: false
+    }),
 })
 
 export type RootState = ReturnType<typeof store.getState>

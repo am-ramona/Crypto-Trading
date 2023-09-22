@@ -93,7 +93,7 @@ class Canvas extends Component {
             <CanvasJSStockChart
               containerProps={containerProps}
               options={options}
-              /* onRef = {ref => this.chart = ref} */
+            /* onRef = {ref => this.chart = ref} */
             />
           )
         }

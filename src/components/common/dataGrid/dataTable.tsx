@@ -33,7 +33,6 @@ import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded'
 import TableCell, { tableCellClasses } from '@mui/material/TableCell'
 import OpenInNewIcon from '@mui/icons-material/OpenInNew'
 import DisabledByDefaultOutlinedIcon from '@mui/icons-material/DisabledByDefaultOutlined'
-import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined'
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined'
 import IosShareOutlinedIcon from '@mui/icons-material/IosShareOutlined'
 import BoxComponent from '../box'
@@ -125,14 +124,6 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   [`&:not(:last-child)`]: { borderBottom: "1px solid rgba(224, 224, 224, 1)" },
-
-  // '&:nth-of-type(odd)': {
-  //   backgroundColor: theme.palette.action.hover,
-  // },
-  // // hide last border
-  // '&:last-child td, &:last-child th': {
-  //   border: 0,
-  // },
 }));
 
 const leverageMarks = [
@@ -1069,48 +1060,48 @@ export default function CustomizedTables(props: CustomizedTablesProps) {
           <>
             {name !== "positions"
               ? arr.slice(1).map((position: any, i: any) => (
-                  <StyledTableRow key={i}>
-                    {position.map((pos: any, index: any) => (
-                        <StyledTableCell
-                          key={index}
-                          style={{
-                            textAlign: "center",
-                            display:
-                              index === position.length - 1 &&
-                                name === "positions"
-                                ? "grid"
-                                : "",
-                            gridTemplateColumns:
-                              index === position.length - 1 &&
-                                name === "positions"
-                                ? "auto auto"
-                                : "",
-                            gridGap:
-                              index === position.length - 1 &&
-                                name === "positions"
-                                ? 10
-                                : "none",
-                          }}
-                        >
-                          {pos}
-                        </StyledTableCell>
-                    ))}
-                  </StyledTableRow>
+                <StyledTableRow key={i}>
+                  {position.map((pos: any, index: any) => (
+                    <StyledTableCell
+                      key={index}
+                      style={{
+                        textAlign: "center",
+                        display:
+                          index === position.length - 1 &&
+                            name === "positions"
+                            ? "grid"
+                            : "",
+                        gridTemplateColumns:
+                          index === position.length - 1 &&
+                            name === "positions"
+                            ? "auto auto"
+                            : "",
+                        gridGap:
+                          index === position.length - 1 &&
+                            name === "positions"
+                            ? 10
+                            : "none",
+                      }}
+                    >
+                      {pos}
+                    </StyledTableCell>
+                  ))}
+                </StyledTableRow>
               ))
               : panelActionsCombined.map((position: any, i: any) => {
                 return (
-                    <StyledTableRow key={i}>
-                      {position.map((pos: any, index: any) => (
-                          <StyledTableCell
-                            key={index}
-                            style={{
-                              textAlign: "center"
-                            }}
-                          >
-                            {pos}
-                          </StyledTableCell>
-                      ))}
-                    </StyledTableRow>
+                  <StyledTableRow key={i}>
+                    {position.map((pos: any, index: any) => (
+                      <StyledTableCell
+                        key={index}
+                        style={{
+                          textAlign: "center"
+                        }}
+                      >
+                        {pos}
+                      </StyledTableCell>
+                    ))}
+                  </StyledTableRow>
                 );
               })}
           </>

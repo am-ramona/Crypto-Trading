@@ -110,7 +110,7 @@ export default function ReactECharts({
       },
     ],
   }
-  
+
 
   useEffect(() => {
     // Initialize chart

@@ -2,7 +2,10 @@ import _ from "lodash";
 import empty from "is-empty";
 import moment from "moment";
 
-export {_, empty};
+export {
+	_,
+	empty
+};
 
 //  remove t from bnb address
 export const refineAddress = address => (_.isString(address) ? (address.charAt(0) === "t" ? address.substr(1) : address) : "-");
