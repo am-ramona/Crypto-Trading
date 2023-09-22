@@ -14,7 +14,6 @@ import {
 import Navbar from "./layout/navbar";
 import EscherMenu from "./layout/resMenu";
 import FeedbackComponent from "./layout/feedback";
-// import { Portfolio, Perpetuals, Dashboard, Docs, NotFound } from './pages';
 import { routes as appRoutes } from "./routes";
 import "./App.css";
 
@@ -23,7 +22,6 @@ const App = () => (
     <Suspense fallback={<div>Loading...</div>}>
       <EscherMenu />
       <Navbar />
-      {/* <ReactNotifications /> */}
       <Routes>
         {appRoutes.map((route) => (
           <Route
@@ -33,24 +31,6 @@ const App = () => (
           />
         ))}
       </Routes>
-      {/* <Routes>
-        <Route path="/" element={ <Navigate to="/portfolio" /> } />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/perpetuals" element={<Perpetuals />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/docs" element={<Docs />} />
-        {/* 404 route */}
-      {/* <Route path="*" element={<NotFound />} /> */}
-      {/* <Route>
-            <NoMatch />
-          </Route> */}
-      {/* </Routes> */}
-
-      {/* <Switch>
-        <Route exact path="/" component={Portfolio} />
-        <Route path="/portfolio" component={Portfolio} />
-        <Route path="/perpetuals" component={Perpetuals} />
-      </Switch> */}
       <FeedbackComponent className="feedbackStyles">Feedback</FeedbackComponent>
     </Suspense>
   </Router>

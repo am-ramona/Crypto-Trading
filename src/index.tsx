@@ -4,22 +4,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { store } from "./app/store";
 import { Provider } from "react-redux";
-// import { ThemeProvider, useTheme } from "@mui/material/styles";
-// import { MuiThemeProvider } from "@material-ui/core/styles";
-// import theme from "./Theme";
-// import { StyledEngineProvider } from "@mui/material/styles";
-import { // CssBaseline, 
-         GlobalStyles } from "@mui/material";
+import { GlobalStyles } from "@mui/material";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-
-// const theme = useTheme();
-
-// const theme = {
-//   borderRadius: "0.7rem",
-//   color: "yellow"
-// } as const;
 
 const inputGlobalStyles = (
   <GlobalStyles
@@ -43,22 +31,12 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <>
-    {/* <ThemeProvider theme={theme}></ThemeProvider> */}
-    {/* <MuiThemeProvider theme={theme}> */}
     <React.StrictMode>
       <Provider store={store}>
-        {/* <ThemeProvider theme={theme}> */}
-        {/* <CssBaseline /> */}
-
         {inputGlobalStyles}
-        {/* <StyledEngineProvider injectFirst> */}
           <App />
-        {/* </StyledEngineProvider> */}
-        {/* </ThemeProvider> */}
       </Provider>
     </React.StrictMode>
-    {/* </MuiThemeProvider> */}
-    {/* </ThemeProvider> */}
   </>
 );
 
