@@ -1,75 +1,19 @@
-// import React, { Component } from 'react';
-// import Box from '@mui/material/Box';
-// import { makeStyles } from '@material-ui/core';
-
-// class InternalMenu extends Component {
-
-//     state = {
-//         selectedView: 'foo',
-//         foo: true // to indicate that foo has been rendered
-//     }
-
-//     onMenuClicked(event, menuItem) {
-//         switch (menuItem) {
-//             case 'foo':
-//                 this.setState({ selectedView: 'foo', foo: true })
-//                 break;
-//             case 'bar':
-//                 this.setState({ selectedView: 'bar', bar: true })
-//                 break;
-//         }
-//     }
-
-//     renderBar() {
-//         const selected = this.state.selectedView === 'bar';
-
-//         if (!this.state.bar) {
-//             return <div /> // don't render bar at all
-//         }
-//         return <div style={{ display: selected ? 'block' : 'none' }}>
-//             {/* <Bar /> */}
-//             the bar
-//         </div>
-//     }
-
-//     renderFoo() {
-//         const selected = this.state.selectedView === 'foo';
-
-//         if (!this.state.foo) {
-//             return <div /> // don't render foo at all
-//         }
-//         return <div style={{ display: selected ? 'block' : 'none' }}>
-//             {/* <Foo /> */}
-//             the foo
-//         </div>
-//     }
-// }
-
-//     export default InternalMenu;
-
 import * as React from "react";
 import { Link } from "react-router-dom";
 import {
-  AppBar,
   Box,
   Toolbar,
-  IconButton,
-  Typography,
   Menu,
   Container,
-  Avatar,
   Button,
   Tooltip,
   MenuItem
 } from "@mui/material";
 import {
-  // AppBar,
-  // Toolbar,
-  CssBaseline,
-  // Typography,
+  // CssBaseline,
   makeStyles,
   useTheme,
-  useMediaQuery
+  // useMediaQuery
 } from "@material-ui/core";
 import MenuIcon from "@mui/icons-material/Menu";
 
@@ -109,16 +53,16 @@ const EscherMenu = () => {
     null
   );
 
-  const classes = useStyles();
+  // const classes = useStyles();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  // const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
+  // const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+  //   setAnchorElNav(event.currentTarget);
+  // };
+  // const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+  //   setAnchorElUser(event.currentTarget);
+  // };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
@@ -129,7 +73,6 @@ const EscherMenu = () => {
   };
 
   return (
-    // <AppBar color="inherit" position="static" sx={{ borderBottom: '1px solid #ff31b9ff', marginBottom: '15px'}}>
     <Container maxWidth="xl" sx={{
       'gridArea': 3,
       'gridRowStart': 2,
@@ -140,16 +83,6 @@ const EscherMenu = () => {
       <Toolbar disableGutters>
 
         <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-          {/* <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton> */}
           <Menu
             id="menu-appbar"
             anchorEl={anchorElNav}
@@ -168,9 +101,6 @@ const EscherMenu = () => {
               display: { xs: "block", md: "none" }
             }}
           >
-            {/* <svg data-testid="NotificationsNoneIcon"></svg> */}
-
-
           </Menu>
         </Box>
 
@@ -199,37 +129,9 @@ const EscherMenu = () => {
                 marginLeft: "auto"
               }}
             >
-              {/* {pages.map((page: any) => (
-                  <Button
-                    variant="outlined"
-                    key={page}
-                    sx={{
-                      my: 2,
-                      display: "block",
-                      color: "#ff31b9ff",
-                      border: "1px solid #ff31b9ff",
-                      textDecoration: "none"
-                    }}
-                  >
-                    <Link to={page.toLowerCase()}>{page}</Link>
-                  </Button>
-                ))} */}
             </Box>
           </>
         </Box>
-
-        {/* <Box flexGrow={1} textAlign="right"> */}
-        {/* <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}> */}
-        {/* <Grid item xs={2}> */}
-        {/* {rightPages.map((page) => (
-
-                <Button variant="outlined" key={page} sx={{ my: 2, color: 'white', display: 'block' }}> 
-                  <Link to={page.toLowerCase()}>{page}</Link>
-                </Button>
-
-            ))} */}
-        {/* </Grid> */}
-        {/* </Box> */}
 
         <Box sx={{ flexGrow: 0, marginLeft: "15px" }} textAlign="right">
           <Menu
@@ -252,7 +154,6 @@ const EscherMenu = () => {
         </Box>
       </Toolbar>
     </Container>
-    // </AppBar>
   );
 };
 export default EscherMenu;

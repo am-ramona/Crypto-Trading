@@ -9,12 +9,6 @@ import {
 } from "@mui/material"
 
 export const useStyles = makeStyles((theme) => ({
-    // root: {
-    //   width: 300
-    // },
-    // margin: {
-    //   height: theme.spacing(3)
-    // },
     mark: {
         color: "#ff31b9ff !important",
     },
@@ -37,8 +31,6 @@ export const PrettoSlider = styled(Slider)({
         border: "none",
     },
     "& .MuiSlider-thumb": {
-        // height: 12,
-        // width: 12,
         backgroundColor: "#ff31b9ff",
         border: "2px solid currentColor",
         "&:focus, &:hover, &.Mui-active, &.Mui-focusVisible": {

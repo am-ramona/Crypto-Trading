@@ -1,19 +1,6 @@
-import * as React from 'react'
-
 const flattenData = (data: any, value = "value") => {
     return data.map((elem: any) => elem[value]);
 }
-
-// Inherit Styles
-// const Parent = ({ children }) => {
-//     const style = { color: "blue" };
-
-//     const clones = React.Children.map(children, (child) =>
-//         <div style={style}>{child}</div>
-//     );
-
-//     return <div>{clones}</div>;
-// };
 
 /**
  * Flatten an array (to enable deep level flatten use recursion with reduce and concat)
@@ -32,11 +19,6 @@ const flattenData = (data: any, value = "value") => {
       : arr.slice();
   }
   
-  // example
-  // const arr = [1, 2, [3, 4, [5, 6]]];
-  // flatDeep(arr, Infinity);
-  // [1, 2, 3, 4, 5, 6]
-
 function sleep(delay = 0) {
   return new Promise((resolve) => {
     setTimeout(resolve, delay);

@@ -1,14 +1,5 @@
-// import "./styles.css";
 import TradeViewChart from "react-crypto-chart";
-
-// var style = {
-//     width: '100px',
-//     height: '100px',
-//     maxWidth: '120px'
-// }
-
 export default function CryptoChart (props) {
-  // console.log('chart props', props)
   return (
     <div className="parent" style={{ 
         overflow: "hidden", ...props}}>
@@ -27,13 +18,9 @@ export default function CryptoChart (props) {
           grid: {
             vertLines: {
               color: "#838fa3",
-            //   style: ""
-              // style: LineStyle.SparseDotted,
             },
             horzLines: {
               color: "#838fa3",
-            //   style: ""
-              // style: LineStyle.SparseDotted,
             }
           },
           crosshair: {

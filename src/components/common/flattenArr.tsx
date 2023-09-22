@@ -14,8 +14,3 @@ export default function flatDeep(arr : Array<any>, d = 1): Array<any> {
     ? arr.reduce((acc, val) => acc.concat(flatDeep(val, d - 1)), [])
     : arr.slice();
 }
-
-// example
-// const arr = [1, 2, [3, 4, [5, 6]]];
-// flatDeep(arr, Infinity);
-// [1, 2, 3, 4, 5, 6]

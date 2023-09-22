@@ -2,12 +2,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import {
   AppBar,
-  Toolbar,
-  CssBaseline,
   Typography,
-  makeStyles,
-  useTheme,
-  useMediaQuery,
   Grid,
   IconButton,
 } from "@material-ui/core";
@@ -17,28 +12,12 @@ import {
   Avatar,
   Menu,
   MenuItem,
-  // MenuIcon,
   ListItemIcon,
   Divider,
-  // IconButton,
-  // Typography,
   Tooltip,
 } from "@mui/material";
-// import Button from '@mui/material/Button';
-// import Box from '@mui/material/Box';
-// import Avatar from '@mui/material/Avatar';
-// import Menu from '@mui/material/Menu';
-// import MenuItem from '@mui/material/MenuItem';
-// import ListItemIcon from '@mui/material/ListItemIcon';
-// import Divider from '@mui/material/Divider';
-// import IconButton from '@mui/material/IconButton';
-// import Typography from '@mui/material/Typography';
-// import Tooltip from '@mui/material/Tooltip';
 import { PersonAdd, Settings, Logout } from "@mui/icons-material";
-import MenuIcon from "@material-ui/icons/Menu";
-// import PersonAdd from '@mui/icons-material/PersonAdd';
-// import Settings from '@mui/icons-material/Settings';
-// import Logout from '@mui/icons-material/Logout';
+// import MenuIcon from "@material-ui/icons/Menu";
 
 export default function EscherMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -65,17 +44,10 @@ export default function EscherMenu() {
         <Button variant="outlined">Dashboard</Button>
         <Button variant="outlined">Docs</Button>
         <Button variant="outlined">...</Button>
-        {/* 
-        <Typography sx={{ minWidth: 100 }}>Perpetuals</Typography>
-        <Typography sx={{ minWidth: 100 }}>Portfolio</Typography>
-        <Typography sx={{ minWidth: 100 }}>Dashboard</Typography>
-        <Typography sx={{ minWidth: 100 }}>Docs</Typography>
-        <Typography sx={{ minWidth: 100 }}>...</Typography> */}
         <Tooltip title="Account settings">
           <IconButton
             onClick={handleClick}
             size="small"
-            // sx={{ ml: 2 }}
             aria-controls={open ? "account-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
@@ -159,7 +131,6 @@ export default function EscherMenu() {
             alignItems="center"
           >
             <Grid item xs={1}>
-              {/* <CmaIcon name="cmaLogo" /> */}
               <Typography variant="h4" className="logo">
                 Logo
               </Typography>
@@ -172,7 +143,6 @@ export default function EscherMenu() {
                 alignContent="center"
                 alignItems="center"
               >
-                {/* <Navigation style={NavigationStyle.HEADER} navigationItems={Menu} /> */}
                 <Button variant="outlined">
                   {" "}
                   <Link to="perpetuals">Perpetuals</Link>
@@ -186,7 +156,6 @@ export default function EscherMenu() {
               </Grid>
             </Grid>
             <Grid item xs={2}>
-              {/* <UserLogin /> */}
               <Button variant="outlined">Connect Wallet</Button>
             </Grid>
           </Grid>
@@ -197,9 +166,6 @@ export default function EscherMenu() {
         <Box>
           <Button color="primary">Link</Button>
           <Button color="primary">Link</Button>
-        </Box>
-        <Box flexGrow={1} textAlign="right">
-          <IconButton>{/* <MenuIcon /> */}</IconButton>
         </Box>
       </Box>
     </div>

@@ -2,22 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 import type { PayloadAction } from "@reduxjs/toolkit"
 import type { RootState } from "../../app/store"
 import { iNotification } from 'react-notifications-component'
-// import 'animatse.css'
 import 'animate.css/animate.compat.css'
-// import 'animate.css/animate.min.css'
-// import { ReactNode } from "react";
-
-// Define a type for the slice state
-// export interface NotificationsState {
-//   container: 'top-right';
-//   message: string;
-//   type: string;
-//   insert: string;
-//   animationIn: Array<string>;
-//   animationOut: Array<string>;
-//   dismiss: object;
-// }
-
 export interface NotificationsState extends iNotification {
   // content?: NotificationContent | unknown | null,
   content?: any

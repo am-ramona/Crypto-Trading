@@ -1,26 +1,12 @@
-import React, {
-  // ReactElement,
-  // useEffect,
-  // useLayoutEffect,
-  // useState,
-} from "react"
+import React from "react"
 // import { JsxElement } from "typescript"
 // import { useStateWithCallbackLazy } from "use-state-with-callback"
-import { Tabs, Tab, 
-        //  Typography, 
+import { Tabs, 
+         Tab, 
          Box } from "@mui/material"
-// import Tab from '@mui/material/Tab'
-// import Typography from '@mui/material/Typography'
-// import Box from '@mui/material/Box'
-// import TabScrollButton from '@material-ui/core/TabScrollButton'
 import { TabScrollButton, withStyles } from "@material-ui/core"
 import BoxComponent from "../box"
 import CustomizedTables from "./dataTable"
-// import { styled, 
-//          Popover 
-//         } from "@mui/material"
-// import CancelPresentationOutlinedIcon from "@mui/icons-material/CancelPresentationOutlined"
-// import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined"
 
 /*** Types & Interfaces ***/
 // type SvgInHtml = HTMLElement & SVGElement;
@@ -79,38 +65,6 @@ function a11yProps(index: number) {
   };
 }
 
-// const pages = [
-//   "Positions",
-//   "Orders",
-//   "Liquidations",
-//   "Funding Payments",
-//   "Unrealized Funding",
-//   "Transfers",
-// ];
-
-// const TabPanelStyled = styled(TabPanel)({
-//   my: 2,
-//   color: "#ff31b9ff",
-//   border: "1px solid #ff31b9ff",
-//   textDecoration: "none",
-//   display: "grid",
-//   alignContent: "center",
-//   justifyContent: "center",
-//   height: "300px",
-// });
-
-// const StyledTabs = styled(Tabs)({
-//   "& .MuiTabs-flexContainer": {
-//     width: "100vw",
-//     justifyContent: "space-between",
-//     display: "flex",
-//   },
-// });
-
-// const hideElement = (arr: any, el) =>{
-//   return arr.filter(e => e !== el)
-// }
-
 const MyTabScrollButton = withStyles((theme) => ({
   root: {
     width: 28,
@@ -122,18 +76,6 @@ const MyTabScrollButton = withStyles((theme) => ({
     },
   },
 }))(TabScrollButton);
-
-// const MyTabScrollButton2 = styled(TabScrollButton)({
-//   root: {
-//     color: "#ff31b9ff !important",
-//     // width: 28,
-//     // overflow: 'hidden',
-//     // transition: 'width 0.5s',
-//     "&.Mui-disabled": {
-//       width: 0,
-//     },
-//   },
-// });
 
 const ordersPanel = [
   [
@@ -285,7 +227,6 @@ export default function LabTabs(props: LabTabsProps) {
   const {
     id,
     pages,
-    // children,
     isRecentTradesLiquidity,
     leverageValue,
     minLeverageValue,
@@ -293,16 +234,12 @@ export default function LabTabs(props: LabTabsProps) {
     leveragePercentage,
     addNewPosition,
     addNewEntry,
-    // positionsPanel,
     updatePositionsPanel,
     updateLeverageValue,
     calculateUsdcValue
   } = props;
 
   const [value, setValue] = React.useState(0);
-  // const [PositionsPanelsLength, 
-  //        SetPositionsPanelsLength
-  //       ] = React.useState<number>(3);
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const [PositionsPanel, setPositionsPanel] = React.useState<any>(//[positionsPanel]);
     [[
@@ -318,55 +255,6 @@ export default function LabTabs(props: LabTabsProps) {
       "Next Fund.",
       "closeAllPos",
     ]]);
-  //   // [
-  //   //   "BTC-PERP",
-  //   //   "LONG",
-  //   //   0.5,
-  //   //   "$20,660.0",
-  //   //   "$41,260.0",
-  //   //   "$40,260.0",
-  //   //   "$38,260.0",
-  //   //   "-$38.0",
-  //   //   "-$2.0",
-  //   //   "+$0.55",
-  //   // ],
-  //   // [
-  //   //   "BTC-PERP",
-  //   //   "SHORT",
-  //   //   10,
-  //   //   "$29,000.0",
-  //   //   "$2,900.95",
-  //   //   "$2,890.95",
-  //   //   "$3,000.0",
-  //   //   "+$100.0",
-  //   //   "-$2.0",
-  //   //   "+$0.55",
-  //   // ],
-  //   // [
-  //   //   "BTC-PERP",
-  //   //   "SHORT",
-  //   //   10,
-  //   //   "$29,000.0",
-  //   //   "$2,900.95",
-  //   //   "$2,890.95",
-  //   //   "$3,000.0",
-  //   //   "+$100.0",
-  //   //   "-$2.0",
-  //   //   "+$0.55",
-  //   // ],
-  //   // [
-  //   //   "BTC-PERP",
-  //   //   "SHORT",
-  //   //   10,
-  //   //   "$29,000.0",
-  //   //   "$2,900.95",
-  //   //   "$2,890.95",
-  //   //   "$3,000.0",
-  //   //   "+$100.0",
-  //   //   "-$2.0",
-  //   //   "+$0.55",
-  //   // ],
-  // ]);
   const [PositionsPanelCloned,
     setPositionsPanelCloned] = React.useState<Array<any>>(PositionsPanel);
 
@@ -378,61 +266,16 @@ export default function LabTabs(props: LabTabsProps) {
   // const forceUpdate = useForceUpdate();
   // useForceUpdate();
 
-  // const positionsPanel = [
-  //     ['Market', 'Direction', 'Size', 'Notional', 'Avg. Entry', 'Est. Exit', 'Est. Liq Price', 'Tot. PnL', 'Fund. PnL', 'Next Fund.', 'closeAllPos'],
-  //     ['BTC-PERP', 'LONG', 0.5, '$20,660.0', '$41,260.0', '$40,260.0', '$38,260.0', '-$38.0', '-$2.0', '+$0.55', <><FileUploadOutlinedIcon style={{ justifySelf: 'end' }} /><CancelPresentationOutlinedIcon key="1" component="svg" onClick={(e: any) => hideElement(e, 1)} style={{ justifySelf: 'start' }} /></>],
-  //     ['BTC-PERP', 'SHORT', 10, '$29,000.0', '$2,900.95', '$2,890.95', '$3,000.0', '+$100.0', '-$2.0', '+$0.55', <><FileUploadOutlinedIcon style={{ justifySelf: 'end' }} /><CancelPresentationOutlinedIcon key="2" component="svg" onClick={(e: any) => hideElement(e, 2)} style={{ justifySelf: 'start' }} /></>]
-  // ]
-  // const positions = positionsPanel.slice(1);
-
-  // console.log("raw PositionsPanel", PositionsPanel);
-  // console.log("raw PositionsPanelCloned", PositionsPanelCloned);
-  // console.log('raw PositionsPanel', PositionsPanel)
-  // console.log("raw finalPositionsPanel", finalPositionsPanel);
-
   React.useEffect(() => {
     if (addNewPosition?.length === 0) return;
     async function asyncCall() {
-      // console.log("calling");
       try {
-        // console.log("useEffect tabs addNewPosition", addNewPosition);
-      //   if (addNewPosition)
-      //   {  console.log("useEffect tabs addNewPosition", addNewPosition);
-      //     console.log("useEffect tabs addNewPosition.length", addNewPosition.length);
-      // }
-        // console.log("useEffect tabs PositionsPanel", PositionsPanel);
-        // console.log(
-        //   "useEffect tabs PositionsPanelCloned",
-        //   PositionsPanelCloned
-        // );
-        // const positionsCloned = [...PositionsPanel];
-        // positionsCloned.push(addNewPosition)
-        // setPositionsPanel(positionsCloned)
-
-        // positionsCloned.map((panel: any) => {
-        //   console.log("a positionsCloned panel", panel);
-
         if (
           addNewPosition &&
-          addNewPosition.length > 0 //&&
-          // !panel.includes(addNewPosition[0])
+          addNewPosition.length > 0 
         ) {
-          // console.log("addNewPosition", addNewPosition);
-          // console.log("does not exist before");
-          // setPositionsPanel([...PositionsPanel, addNewPosition]);
-          // const copy = [...PositionsPanelCloned];
-          // copy.push(addNewPosition);
-          // console.log("test, addNewPosition", copy, addNewPosition);
-          // const result = appendLastElement(addNewPosition);
-          // console.log("appended result", result);
           setPositionsPanelCloned([...PositionsPanelCloned, addNewPosition]);
           setFinalPositionsPanel([...PositionsPanelCloned, addNewPosition]);
-
-          // Update the document title using the browser API    document.title = `You clicked ${count} times`;
-          // console.log(
-          //   "useEffect tabs PositionsPanelCloned after add",
-          //   PositionsPanelCloned
-          // );
         }
       } catch (e) {
         console.log("Error", e);
@@ -446,14 +289,6 @@ export default function LabTabs(props: LabTabsProps) {
       }
     }
     asyncCall();
-
-    // });
-
-    // if (addNewPosition && addNewPosition.length > 0) {
-    //   setPositionsPanel([...PositionsPanel, addNewPosition]);
-    //   // Update the document title using the browser API    document.title = `You clicked ${count} times`;
-    //   console.log("useEffect tabs PositionsPanel after add", PositionsPanel);
-    // }
   }, [addNewPosition]);
 
   // const setSanitizedIndex = useCallback(
@@ -467,11 +302,6 @@ export default function LabTabs(props: LabTabsProps) {
       try {
    
         const finalPositionsPanelCopy = [...finalPositionsPanel];
-        // const PositionsPanelClonedCloned = [...PositionsPanel];
-        // console.log("first PositionsPanel", PositionsPanel);
-        // console.log("first finalPositionsPanelCopy", finalPositionsPanelCopy);
-        // console.log("makeCall PositionsPanelCloned", PositionsPanelCloned);
-        // console.log("open or edit position addNewEntry", addNewEntry);
 
         if (
           finalPositionsPanelCopy.length === 2 &&
@@ -479,9 +309,6 @@ export default function LabTabs(props: LabTabsProps) {
           addNewEntry &&
           addNewPosition.length > 0
         ) {
-          // console.log(
-          //   "PositionsPanelClonedCloned.length === 2, open a position"
-          // );
           setPositionsPanel([...PositionsPanel, addNewPosition]);
           addNewEntry(true);
         } else if (
@@ -493,10 +320,6 @@ export default function LabTabs(props: LabTabsProps) {
             .flat()
             .includes(addNewPosition[0])
         ) {
-          //    console.log('flatten, pop flat, flatten PositionsPanelClonedCloned include, addNewPosition[0]', PositionsPanelClonedCloned.flat(), PositionsPanelClonedCloned.pop().flat(), PositionsPanelClonedCloned.pop().flat().includes(addNewPosition[0]), addNewPosition[0])
-          // console.log(
-          //   "PositionsPanelClonedCloned.length > 2, not includes, open a position"
-          // );
           setPositionsPanel([...PositionsPanel, addNewPosition]);
           addNewEntry(true);
         } else if (
@@ -509,56 +332,20 @@ export default function LabTabs(props: LabTabsProps) {
             .includes(addNewPosition[0])
         ) {
           addNewEntry(false);
-          // console.log(
-          //   "include",
-          //   finalPositionsPanelCopy
-          //     .slice(0, -1)
-          //     .flat()
-          //     .includes(addNewPosition[0]),
-          //   addNewPosition[0]
-          // );
-          // console.log(
-          //   "PositionsPanelClonedCloned.length > 2, includes, edit a position"
-          // );
-          // console.log("PositionsPanel Editable", PositionsPanel);
-          // console.log(
-          //   "PositionsPanelClonedCloned Editable",
-          //   finalPositionsPanelCopy
-          // );
-          // console.log(
-          //   "PositionsPanelClonedCloned Editable length",
-          //   finalPositionsPanelCopy.length
-          // );
-          // console.log("tabs slice", finalPositionsPanelCopy.slice(1));
           let sum: number = 0;
           let withoutFirst = finalPositionsPanelCopy.slice(1);
-          // let BTCArray: Array<any> = [];
-          // let ETHArray: Array<any> = [];
-          // console.log("withoutFirst original", withoutFirst);
           let finalEntry = [withoutFirst[withoutFirst.length - 1][0]];
-          // let operatorsArr = withoutFirst
-          //     .map((finalPositionPanelCopy: Array<any>, index) => {
-          //       console.log("finalPositionPanelCopy[2]", +finalPositionPanelCopy[2]);
-          //       // if (finalPositionPanelCopy[0] === 'BTC-PERP' ) BTCArray.push(finalPositionPanelCopy)
-          //       // if (finalPositionPanelCopy[0] === 'ETH-PERP' ) ETHArray.push(finalPositionPanelCopy)
-          //    });
-          // console.log("finalEntry 1", finalEntry);
           let newArray = withoutFirst.filter((currentValue, index, arr) => {
-            // console.log("currentValue, index, arr", currentValue, index, arr);
             if (currentValue[0] === addNewPosition[0]) return arr;
           });
-          // console.log("newArray", newArray);
           newArray.map((array: Array<any>, index) => {
             if (array[1] === "Long") {
               sum += +array[2];
-              // console.log("sum inside", sum);
               return "+";
             }
             sum -= +array[2];
-            // console.log("sum inside", sum);
             return "-";
           });
-          // console.log("sum", sum);
           if (sum >= 0) finalEntry.push("Long");
           else finalEntry.push("Short");
           finalEntry.push(Math.abs(sum));
@@ -572,32 +359,11 @@ export default function LabTabs(props: LabTabsProps) {
             "+$0.55"
           );
 
-          // console.log("P P see finalEntry", finalEntry);
-          // const positionsPanelCopy = [...PositionsPanel];
-          // let pop = positionsPanelCopy.pop();
-          // console.log("P P see PositionsPanelCloned", PositionsPanelCloned);
-          // const PositionsPanelClonedCopy = [...PositionsPanelCloned];
-          // const PositionsPanelClonedCopyWithoutLast =
-          //   PositionsPanelClonedCopy.slice(0, -1);
-          // var foundIndex = PositionsPanelClonedCopyWithoutLastFirst.findIndex(x => x[0] == addNewPosition[0]);
-          // PositionsPanelClonedCopyWithoutLastFirst[foundIndex] = item;
-          // const PositionsPanelClonedCopyWithoutLastFirst = PositionsPanelClonedCopyWithoutFirst.slice(0, - 1);
-          // console.log(
-          //   "P P see PositionsPanelClonedCopyWithoutLast",
-          //   PositionsPanelClonedCopyWithoutLast
-          // );
-          // console.log("P P see pop", pop);
-          // console.log("P P see positionsPanelCopy", positionsPanelCopy);
           const updatedItems = [...PositionsPanel].map((el) =>
             el[0] === addNewPosition[0] ? finalEntry : el
           );
-          // const updatedItems = [].concat(...PositionsPanelClonedCopyWithoutLast.map(el => el[0] == addNewPosition[0] ));
-          // console.log("updatedItems", updatedItems);
-          // const uniq = [...new Set(updatedItems)];
           setPositionsPanel(updatedItems);
           setFinalPositionsPanel(updatedItems);
-          // console.log("concat", positionsPanelCopy.concat([finalEntry]));
-          // console.log("with similarity PositionsPanel", PositionsPanel);
         }
       } catch (e) {
         console.log('open or edit position error :', e);
@@ -617,305 +383,22 @@ export default function LabTabs(props: LabTabsProps) {
     makeCall();
   }, [PositionsPanelCloned]);
 
-  // useEffect(() => {
-  //    setPositionsPanelCloned(finalPositionsPanel)
-  // }, [finalPositionsPanel])
-
-  // useEffect(
-  //   () => setSanitizedIndex(finalPositionsPanel),
-  //   [setSanitizedIndex, finalPositionsPanel],
-  // );
-
-  // console.log("PositionsPanel on root", PositionsPanel);
-
-  // useEffect(() => {
-
-  // }, [PositionsPanel])
-
   React.useEffect(() => {
-    // Update the document title using the browser API document.title = `You clicked ${count} times`;
-    // console.log("useEffect PositionsPanel", PositionsPanel);
-    // setPositionsPanelCloned(PositionsPanel);
     if (updatePositionsPanel) {
-      // console.log('updatePositionsPanel called')
-      // console.log('useEffect PositionsPanel', PositionsPanel)
       updatePositionsPanel(PositionsPanel);
       setPositionsPanel(PositionsPanel);
-      // setFinalPositionsPanel(PositionsPanel);
       setPositionsPanelCloned(PositionsPanel);
     }
-    //   PositionsPanel.some((panel:any) =>
-    //   console.log('a position panel', panel)
-    //     // panel.includes(value)
-    // );
-    // PositionsPanel.some((panel:any) => {
-    //   console.log('a positionsCloned panel', panel)
 
-    //     if (addNewPosition && addNewPosition.length > 0 && !panel.includes(addNewPosition[0])) {
-    //       console.log('addNewPosition[0]', addNewPosition[0])
-    //       console.log('does not exist before')
-    //       setPositionsPanel([...PositionsPanel, addNewPosition]);
-    //       // Update the document title using the browser API    document.title = `You clicked ${count} times`;
-    //       console.log("useEffect tabs PositionsPanel after add", PositionsPanel);
-    //     }
-    //   });
   }, [PositionsPanel, updatePositionsPanel]);
-
-  // React.useEffect(() => {
-  //   // Update the document title using the browser API    document.title = `You clicked ${count} times`;
-  //   // console.log("useEffect PositionsPanelsLength", PositionsPanelsLength);
-  // }, [PositionsPanelsLength]);
-
-  // const appendLastElement = React.useCallback(
-  //   async (arg: any) => {
-  //     // setArrCloned(arr, () => console.log("done"));
-  //     // await setArrCloned(arr, () => console.log("done"));
-  //     var actions: third = [];
-  //     let positionsPanelWithAction: second = [];
-
-  //     return arg.map((ele: third, i: number) => {
-  //       if (ele) {
-  //         console.log("useEffect ele", Array.isArray(ele));
-  //         console.log("inside panel", arg);
-  //         // console.log("inside ele", ele);
-  //         // console.log("inside arr", arr);
-  //         // console.log("inside arrCloned", arrCloned);
-  //         // console.log("inside panelActionsCombined", panelActionsCombined);
-
-  //         actions.push(
-  //           <div id={`lastElement${i}`} key={`${i}`}>
-  //             <FileUploadOutlinedIcon style={{ justifySelf: "end" }} />
-  //             <CancelPresentationOutlinedIcon
-  //               key={`${i}`}
-  //               component="svg"
-  //               // aria-describedby={id}
-  //               style={{ justifySelf: "start" }}
-  //               onClick={(event: any) => hideElement(event, `lastElement${i}`)}
-  //             // onClick={handlePopUpClick}
-  //             />
-  //             <Popover
-  //               id={open ? "simple-popover" : undefined}
-  //               open={open}
-  //               anchorEl={anchorEl}
-  //               onClose={handleClosePopup}
-  //               anchorOrigin={{
-  //                 vertical: "bottom",
-  //                 horizontal: "left",
-  //               }}
-  //             >
-  //               <Typography sx={{ p: 2 }}>
-  //                 The content of the Popover.
-  //               </Typography>
-  //             </Popover>
-  //             {/* <div>
-  //     <Button aria-describedby={id} variant="contained" onClick={handleClick}>
-  //       Open Popover
-  //     </Button>
-  //     <Popover
-  //       id={id}
-  //       open={true}
-  //       anchorEl={anchorEl}
-  //       onClose={handleClose}
-  //       anchorOrigin={{
-  //         vertical: 'bottom',
-  //         horizontal: 'left',
-  //       }}
-  //     >
-  //       <Typography sx={{ p: 2 }}>The content of the Popover.</Typography>
-  //     </Popover>
-  //   </div> */}
-  //           </div>
-  //         );
-  //         let eleCopy = ele.slice();
-  //         positionsPanelWithAction[i] = [...eleCopy, ...[actions[i]]];
-  //         return positionsPanelWithAction[i];
-  //       }
-  //     });
-  //   },
-  //   [addNewPosition]
-  // );
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
-  // const handleClosePopup = () => {
-  //   setAnchorEl(null);
-  //   // setOpen(false);
-  // };
-
-  // function containsDuplicates(array: any) {
-  //   if (array.length !== new Set(array).size) {
-  //     return true;
-  //   }
-
-  //   return false;
-  // }
-
-  // let tabsMapping = new Map<string, number>([
-  //   ["Positions", 0],
-  //   ["Orders", 1],
-  //   ["Liquidations", 2],
-  //   ["Funding Payments", 3],
-  //   ["Unrealized Funding", 4],
-  //   ["Transfers", 5],
-  // ]);
-
-  // const updateState = () => {
-
-  // }
-
-  //  let updateState = new Promise(function(myResolve, myReject) {
-  //         // "Producing Code" (May take some time)
-  //         let copy = [...PositionsPanel];
-  // let data = copy.filter((panel: any) => !panel.find((el: any) => (typeof el === 'object' && el.props.id===id)))
-  // console.log('data', data)
-  // setPositionsPanel(data);
-
-  //           myResolve(); // when successful
-  //           myReject();  // when error
-  //         });
-
-  // printDelayed is a 'Promise<void>'
-  // async function printDelayed(elements: string[]) {
-  //       await delay(400);
-  //       console.log(elements);
-  //   }
-
-  //   async function delay(milliseconds: number) {
-  //     return new Promise<void>((resolve) => {
-  //       setTimeout(resolve, milliseconds);
-  //     });
-  //   }
-  //   printDelayed(["Hello", "beautiful", "asynchronous", "world"]).then(() => {
-  //     console.log();
-  //     console.log("Printed every element!");
-  //   });
-
-  //   function resolveAfter2Seconds() {
-  //     return new Promise(resolve => {
-  //       setTimeout(() => {
-  //         resolve('resolved');
-  //       }, 2000);
-  //     });
-  //   }
-
-  //   async function asyncCall() {
-  //     console.log('calling');
-  //     const result = await resolveAfter2Seconds();
-  //     console.log(result);
-  //     // expected output: "resolved"
-  //   }
-
-  // "Consuming Code" (Must wait for a fulfilled Promise)
-  // updateState.then(
-  //   function(value) { /* code if successful */ },
-  //   function(error) { /* code if some error */ }
-  // );
-
-  // const hideElement = (event: React.MouseEvent<HTMLElement>, id: any) => {
-  //   // forceUpdate();
-
-  //   // console.log('event', event)
-  //   // console.log('event.target', event.target)
-  //   // console.log('hideElement index', (event.target as any).index)
-  //   // const { target }: any = event;
-  //   // console.log('any')
-  //   // console.log('index', index)
-  //   // console.log('last elememt type', typeof PositionsPanel[1][PositionsPanel[1][PositionsPanel[1].length - 1]])
-
-  //   SetPositionsPanelsLength(PositionsPanelsLength - 1);
-
-  //   //             const newState = PositionsPanel.map((panel: any) => {
-  //   //               // 👇️ if id equals 2, update country property
-  //   //               const startsWithdiv = panel.filter((el: any) => typeof el !== 'object' && el.key === 1);
-  //   //             // const num2x = panel.map((n: any) => {if ((typeof n) === 'object') console.log('n.key', n.key)})
-  //   // // console.log('startsWithdiv', startsWithdiv)
-  //   //               // 👇️ otherwise return object as is
-  //   //                 return startsWithdiv
-  //   //             });
-  //   console.log("hideElement PositionsPanel", PositionsPanel);
-  //   let copy = [...PositionsPanel];
-  //   let data = copy.filter(
-  //     (panel: any) =>
-  //       !panel.find((el: any) => typeof el === "object" && el.props.id === id)
-  //   );
-  //   console.log("data", data);
-  //   setPositionsPanel(data);
-  //   // forceUpdate();
-  //   //   const find = PositionsPanel.find((panel: any) => {
-  //   //   return panel.some((item: any) => {
-  //   // //^^^^^^
-  //   //     return item.key === 1;
-  //   //   });
-  //   // });
-
-  //   // console.log('find', find)
-  //   // console.log('newState', newState)
-
-  //   // PositionsPanel.find(x => x[x.length - 1].includes === '45').foo;
-
-  //   // type FindElement = {
-  //   //     name: string;
-  //   //     author: string;
-  //   //     price: number;
-  //   //   };
-
-  //   // const match = PositionsPanel.find((element: HTMLElement) => {
-  //   //     console.log('PositionPanel new outside', PositionsPanel)
-  //   //     // if (element.includes()) {
-  //   //     //   setPositionsPanel(PositionsPanel.filter((panel: any, i: any) => panel !== element));
-  //   //     //   console.log('PositionPanel new', PositionsPanel)
-  //   //     //   return true;
-  //   //     // }
-  //   //   });
-  //   //   setPositionPanel(PositionPanel.filter((panel, i) => i !== index));
-  //   //   const removeItem = index => setPositionPanel(o => ({
-  //   //     ...o,
-  //   //     c: PositionPanel.filter((_, i) => i !== index)
-  //   //   }))
-  //   //   const removeItem = index => setObj(o => {
-  //   // console.log('hideElement PositionsPanel', PositionsPanel)
-  //   // const positionsArray = [...PositionsPanel]
-
-  //   // positionsArray.splice(PositionsPanel.length - 1,1)
-  //   // positionsArray.shift();
-  //   // const newPositions = PositionsPanel.filter((panel, i) => i !== index)
-  //   // console.log('newPositions', newPositions)
-  //   // console.log('positionsArray', positionsArray)
-  //   // setPositionsPanel(positionsArray);
-  //   //     let newPositions = PositionsPanel.map((el, i) => (
-  //   //         i !== index ? [...el]: el
-  //   //   ))
-  //   // let newPositions = [...PositionsPanel];
-  //   //   newPositions[index] = {...newPositions[index], key: value};
-
-  //   // console.log('newPositions', newPositions)
-  //   //   setPositionsPanel([["tralal"],["tralal"]]);
-  //   //   setPositionsPanel(positionsArray);
-  //   //   setPositionsPanel(positionsArray)
-
-  //   //     return { ...obj, c }
-  //   //   })
-  //   // console.log('PositionsPanel.length', PositionsPanel.length)
-
-  //   // setPositionPanel(PositionPanel.filter((panel, i) => i !== (event.target as any).index));
-  // };
-
-  //   useEffect(() =>
-  // //   console.log('panels', panels)
-  //   ), []
-
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
-
-  // const updatePositionsPanel = useCallback(
-  //   (value) => {
-  //     setPositionsPanel(value)
-  //   },
-  //   [],
-  // );
 
   const updateFinalPositionsPanel = React.useCallback(
     (finalPositionsPanel: Array<any>): void => {
@@ -926,9 +409,7 @@ export default function LabTabs(props: LabTabsProps) {
 
   const handleClickTab = React.useCallback(
     (page: any): void => {
-      // console.log('page', page)
       if (page === 'Recent Trades / Liquidity') { 
-        // console.log('Recent Trades / Liquidity')
         isRecentTradesLiquidity!(true) // Or isRecentTradesLiquidity?.(true)
         return;
       }
@@ -1005,13 +486,6 @@ export default function LabTabs(props: LabTabsProps) {
               />
             );
           })}
-          {/* { for (let [key, value] of tabsMapping) {
-     <Tab
-     label={`Item ${value}`} {...a11yProps(value)}
-     >
-       ${key}
-     </Tab>           //"Lokesh" 37 "Raj" 35 "John" 40
-} */}
         </Tabs>
       </Box>
 
@@ -1019,7 +493,6 @@ export default function LabTabs(props: LabTabsProps) {
         <BoxComponent>
           <CustomizedTables name="positions"
             arr={PositionsPanel}
-            // addNewEntry={addNewEntry}
             updateArr={updatePositionsPanel}
             leverageValue={leverageValue}
             minLeverageValue={minLeverageValue}
