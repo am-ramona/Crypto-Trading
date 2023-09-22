@@ -1,22 +1,5 @@
-// import { createTheme } from "@material-ui/core/styles";
 import * as React from 'react';
 import { Box, ThemeProvider, createTheme } from '@mui/system';
-
-// const theme = createTheme({
-//   overrides: {
-//     MuiCssBaseline: {
-//       "@global": {
-//         "*, *::before, *::after": {
-//           boxSizing: "content-box",
-//         },
-
-//         body: {
-//           backgroundColor: "#fff",
-//         },
-//       },
-//     },
-//   },
-// });
 
 const theme = createTheme({
     palette: {
