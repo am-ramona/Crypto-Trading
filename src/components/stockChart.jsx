@@ -49,7 +49,7 @@ class StockChart extends Component {
 
     render() {
         const options = {
-            theme: 'dark1',  
+            theme: 'dark1',
             charts: [
                 {
                     axisX: {
@@ -136,13 +136,13 @@ class StockChart extends Component {
                     {// Reference: https://reactjs.org/docs/conditional-rendering.html#inline-if-with-logical--operator
                         this.state.isLoaded &&
                         <>
-                        {/* <div id="chartContainer" style="height: 360px; width: 100%;"></div> */}
-                        <CanvasJSStockChart
-                            // id="EscherStockChart"
-                            // ref={this.myRef} 
-                            containerProps={containerProps}
-                            options={options}
-                        /></>}
+                            {/* <div id="chartContainer" style="height: 360px; width: 100%;"></div> */}
+                            <CanvasJSStockChart
+                                // id="EscherStockChart"
+                                // ref={this.myRef} 
+                                containerProps={containerProps}
+                                options={options}
+                            /></>}
                 </div>
             </div>
         );

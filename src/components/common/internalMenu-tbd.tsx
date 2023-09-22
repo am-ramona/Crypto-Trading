@@ -38,12 +38,12 @@ const useStyles = makeStyles((theme) => ({
   // },
 }));
 
-const pages = [ "Positions", 
-                "Orders", 
-                "Liquidations", 
-                "Funding Payments", 
-                "Unrealized Funding", 
-                "Transfers"];
+const pages = ["Positions",
+  "Orders",
+  "Liquidations",
+  "Funding Payments",
+  "Unrealized Funding",
+  "Transfers"];
 
 const EscherMenu = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(

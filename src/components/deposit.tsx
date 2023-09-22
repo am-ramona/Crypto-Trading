@@ -9,8 +9,8 @@ import {
     Box,
 } from "@mui/material";
 
-export default function Deposit({settradingAmount}: any) {
-    const [ depositAmount, setDepositAmount ] = React.useState<number>()
+export default function Deposit({ settradingAmount }: any) {
+    const [depositAmount, setDepositAmount] = React.useState<number>()
 
     return (
         <Box
@@ -39,10 +39,10 @@ export default function Deposit({settradingAmount}: any) {
                     value={depositAmount}
                     onChange={(e) => {
                         setDepositAmount(
-                          Number(e.target.value)
+                            Number(e.target.value)
                         );
                         settradingAmount(Number(e.target.value));
-                      }}
+                    }}
                     endAdornment={
                         <InputAdornment
                             position="end"
@@ -97,7 +97,7 @@ export default function Deposit({settradingAmount}: any) {
                         justifySelf: "flex-end",
                     }}
                 >
-                    $0.00 { depositAmount && depositAmount > 0 && <> -&gt; {depositAmount}</>}
+                    $0.00 {depositAmount && depositAmount > 0 && <> -&gt; {depositAmount}</>}
                 </Box>
             </Box>
         </Box>

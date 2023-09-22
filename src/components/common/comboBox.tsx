@@ -1,10 +1,10 @@
 import * as React from "react";
 import { TextField, Stack, Paper, CircularProgress } from "@mui/material";
 // import { matchSorter } from 'match-sorter';
-import Autocomplete, 
-      { 
-      //  createFilterOptions 
-      } from "@mui/material/Autocomplete";
+import Autocomplete,
+{
+  //  createFilterOptions 
+} from "@mui/material/Autocomplete";
 import { styled } from "@mui/material/styles";
 import { makeStyles } from "@material-ui/core/styles";
 // import { WindowSharp } from "@mui/icons-material";
@@ -121,7 +121,7 @@ export default function ComboBox({ updateValue }: ComboBoxProps) {
     }
 
     (async () => {
-      await sleep(1e3); 
+      await sleep(1e3);
 
       if (active) {
         setOptions([...perpetualsMarkets]);

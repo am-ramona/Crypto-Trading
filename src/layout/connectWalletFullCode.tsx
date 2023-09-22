@@ -35,24 +35,10 @@ import {
 } from "@polkadot/extension-dapp";
 
 import { ApiPromise, WsProvider } from "@polkadot/api";
-
-// import composableSignature from "./assets/images/composable.png";
-// import composableFace from "./assets/images/face.png";
 import "./connectWallet.css";
 
 const talismanWallet = new TalismanWallet();
-const authError = new AuthError("tralala", talismanWallet);
-const baseDotsamaWallet = new BaseDotsamaWallet();
-const baseWalletError = new BaseWalletError("tralala", talismanWallet);
-const notInstalledError = new NotInstalledError("tralala", talismanWallet);
-const setupNotDoneError = new SetupNotDoneError("tralala", talismanWallet);
 const polkadotjsWallet = new PolkadotjsWallet();
-
-interface Accounts {
-    address: string;
-    meta: object;
-    type: string;
-}
 
 function ConnectWallet() {
     const [wallet, setWallet] = useState<WalletAccount>();
@@ -66,74 +52,17 @@ function ConnectWallet() {
     const [balance, setBalance] = useState<string>("");
     const supportedWallets: Wallet[] = getWallets();
     const subWallet: Wallet | undefined = getWalletBySource("subwallet-js");
-    // console.log("raw subWallet", subWallet); // undefined
-    // console.log("raw supportedWallets", supportedWallets);
-
-    // const supportedWallets = getWallets();
-    // const wallet = getWalletBySource(source);
-    useEffect(() => {
-        // console.log("isOpenModal", isOpenModal);
-        // console.log("wallet", wallet);
-        // console.log("supportedWallets", supportedWallets);
-        // console.log("TalismanWallet: ", TalismanWallet);
-        // console.log("talismanWallet", talismanWallet);
-        // console.log("the type WalletAccount: ", WalletAccount);
-        // console.log('AuthError', AuthError);
-        // console.log("authError", authError);
-        // console.log("authError.message", authError.message);
-        // console.log("authError.wallet", authError.wallet);
-        // console.log("authError.name", authError.name);
-        // console.log("baseDotsamaWallet", baseDotsamaWallet);
-        // console.log("baseWalletError", baseWalletError);
-        // console.log("notInstalledError", notInstalledError);
-        // console.log("polkadotjsWallet", polkadotjsWallet);
-        // console.log('SetupNotDoneError', SetupNotDoneError);
-        // console.log("getWalletBySource", getWalletBySource);
-        // console.log("getWallets", getWallets);
-        // console.log("isWalletInstalled", isWalletInstalled);
-    }, [isOpenModal]);
 
     useEffect(() => {
         async function main() {
             const wsProvider = new WsProvider("wss://rpc.polkadot.io");
             const api = await ApiPromise.create({ provider: wsProvider }).then(
                 (api) => {
-                    // console.log("api", api);
-                    // console.log("api.genesisHash.toHex()", api.genesisHash.toHex());
                     setAPI(api);
                 }
-            ); // await api.isReady;
-            // console.log(api.genesisHash.toHex());
-
-            /*--- OR ---*/
-            // Create the instance
-            // const api = new ApiPromise({ provider: wsProvider });
-
-            // Wait until we are ready and connected
-            // await api.isReady;
-
-            // Do something
-            // console.log(api.genesisHash.toHex());
-
-            /*--- OR full example ---*/
-            // Initialise the provider to connect to the local node
-            //  const provider = new WsProvider('ws://127.0.0.1:9944');
-
-            // Create the API and wait until ready
-            // const api = await ApiPromise.create({ provider });
-
-            // Retrieve the chain & node information information via rpc calls
-            // const [chain, nodeName, nodeVersion] = await Promise.all([
-            //   api.rpc.system.chain(),
-            //   api.rpc.system.name(),
-            //   api.rpc.system.version()
-            // ]);
-
-            // console.log(`You are connected to chain ${chain} using ${nodeName} v${nodeVersion}`);
+            );
         }
         main();
-        // main().catch(console.error);
-        // main().catch(console.error).finally(() => process.exit());
     }, []);
 
     useEffect(() => {
@@ -149,9 +78,6 @@ function ConnectWallet() {
         }
 
         getBalance();
-        // console.log("getBalance:", getBalance());
-
-        // console.log("wallet.address: ", wallet?.address);
     }, [wallet, API]);
 
     useEffect(() => {
@@ -160,11 +86,7 @@ function ConnectWallet() {
 
     const connectWallet = async () => {
         const allInjected = await web3Enable("my cool dapp");
-
         const allAccounts = await web3Accounts();
-
-        // console.log("allAccounts", allAccounts);
-        // console.log("typeof allAccounts", typeof allAccounts);
         setAllAccounts(allAccounts);
 
         const SENDER = allAccounts[0].address;
@@ -181,19 +103,6 @@ function ConnectWallet() {
                 address: wallet.address,
             });
         }
-
-        // https://github.com/TalismanSociety/talisman-connect/tree/master/libs/wallets
-        //      // NOTE: If `account` object is not handy, then use `getWalletBySource` to get the wallet then the signer.
-        //   const signer = account.wallet.signer;
-
-        //   // NOTE: This line will trigger the extension popup
-        //   const { signature } = await signer.signRaw({
-        //     type: 'payload',
-        //     data: 'Some data to sign...',
-        //     address: account.address,
-        //   });
-        // } catch (err) {
-        //   // Handle error...
     };
 
     const sendMoney = async () => {

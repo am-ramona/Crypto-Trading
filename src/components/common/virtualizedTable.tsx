@@ -130,40 +130,40 @@ class MuiVirtualizedTable extends React.PureComponent<MuiVirtualizedTableProps> 
     render() {
         const { columns, rowHeight, headerHeight, ...tableProps } = this.props;
         return (
-                <AutoSizer>
-                    {({ height, width }: { height: any; width: any }) => (
-                        <Table
-                            height={height}
-                            width={width}
-                            rowHeight={rowHeight!}
-                            gridStyle={{
-                                direction: 'inherit',
-                            }}
-                            headerHeight={headerHeight!}
-                            {...tableProps}
-                            rowClassName={this.getRowClassName}
-                        >
-                            {columns.map(({ dataKey, ...other }, index) => {
-                                return (
-                                    <Column
-                                        key={dataKey}
-                                        headerRenderer={(headerProps: any) =>
-                                            this.headerRenderer({
-                                                ...headerProps,
-                                                columnIndex: index,
-                                            })
-                                        }
-                                        //   style={{ fontSize: '13px' }}
-                                        className={classes.flexContainer}
-                                        cellRenderer={this.cellRenderer}
-                                        dataKey={dataKey}
-                                        {...other}
-                                    />
-                                );
-                            })}
-                        </Table>
-                    )}
-                </AutoSizer>
+            <AutoSizer>
+                {({ height, width }: { height: any; width: any }) => (
+                    <Table
+                        height={height}
+                        width={width}
+                        rowHeight={rowHeight!}
+                        gridStyle={{
+                            direction: 'inherit',
+                        }}
+                        headerHeight={headerHeight!}
+                        {...tableProps}
+                        rowClassName={this.getRowClassName}
+                    >
+                        {columns.map(({ dataKey, ...other }, index) => {
+                            return (
+                                <Column
+                                    key={dataKey}
+                                    headerRenderer={(headerProps: any) =>
+                                        this.headerRenderer({
+                                            ...headerProps,
+                                            columnIndex: index,
+                                        })
+                                    }
+                                    //   style={{ fontSize: '13px' }}
+                                    className={classes.flexContainer}
+                                    cellRenderer={this.cellRenderer}
+                                    dataKey={dataKey}
+                                    {...other}
+                                />
+                            );
+                        })}
+                    </Table>
+                )}
+            </AutoSizer>
         );
     }
 }

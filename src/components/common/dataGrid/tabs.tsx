@@ -1,9 +1,11 @@
 import React from "react"
 // import { JsxElement } from "typescript"
 // import { useStateWithCallbackLazy } from "use-state-with-callback"
-import { Tabs, 
-         Tab, 
-         Box } from "@mui/material"
+import {
+  Tabs,
+  Tab,
+  Box
+} from "@mui/material"
 import { TabScrollButton, withStyles } from "@material-ui/core"
 import BoxComponent from "../box"
 import CustomizedTables from "./dataTable"
@@ -23,7 +25,7 @@ interface TabPanelProps {
 interface LabTabsProps {
   id?: string;
   pages: Array<string>;
-  isRecentTradesLiquidity?: (arg: boolean) => void; 
+  isRecentTradesLiquidity?: (arg: boolean) => void;
   addNewPosition?: Array<any>;
   leverageValue?: number;
   minLeverageValue?: number;
@@ -261,8 +263,6 @@ export default function LabTabs(props: LabTabsProps) {
   const [finalPositionsPanel,
     setFinalPositionsPanel] = React.useState<Array<any>>(PositionsPanel);
 
-  // const [flag, setFlag] = React.useState<boolean>(false)
-  // const timelineLoaded = React.useRef<boolean>(false);
   // const forceUpdate = useForceUpdate();
   // useForceUpdate();
 
@@ -272,7 +272,7 @@ export default function LabTabs(props: LabTabsProps) {
       try {
         if (
           addNewPosition &&
-          addNewPosition.length > 0 
+          addNewPosition.length > 0
         ) {
           setPositionsPanelCloned([...PositionsPanelCloned, addNewPosition]);
           setFinalPositionsPanel([...PositionsPanelCloned, addNewPosition]);
@@ -300,7 +300,7 @@ export default function LabTabs(props: LabTabsProps) {
     if (PositionsPanelCloned.length === 1) return;
     async function makeCall() {
       try {
-   
+
         const finalPositionsPanelCopy = [...finalPositionsPanel];
 
         if (
@@ -409,7 +409,7 @@ export default function LabTabs(props: LabTabsProps) {
 
   const handleClickTab = React.useCallback(
     (page: any): void => {
-      if (page === 'Recent Trades / Liquidity') { 
+      if (page === 'Recent Trades / Liquidity') {
         isRecentTradesLiquidity!(true) // Or isRecentTradesLiquidity?.(true)
         return;
       }
@@ -464,7 +464,7 @@ export default function LabTabs(props: LabTabsProps) {
           allowScrollButtonsMobile
           aria-label="scrollable tabs"
         >
-          {pages.map((page: any, index)=> {
+          {pages.map((page: any, index) => {
             return (
               <Tab key={index}
                 sx={{
@@ -482,7 +482,7 @@ export default function LabTabs(props: LabTabsProps) {
                 disabled={
                   page === "Orders" //|| page === "Recent Trades / Liquidity"
                 }
-                onClick={() => handleClickTab(page)} 
+                onClick={() => handleClickTab(page)}
               />
             );
           })}

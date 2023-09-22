@@ -8,8 +8,8 @@ import {
     Box,
 } from "@mui/material";
 
-export default function Withdraw({amount, updateWithdrawAmount}: any) {
-    const [ withdrawAmount, setWithdrawAmount ] = React.useState<number>()
+export default function Withdraw({ amount, updateWithdrawAmount }: any) {
+    const [withdrawAmount, setWithdrawAmount] = React.useState<number>()
 
     return (
         <Box
@@ -40,10 +40,10 @@ export default function Withdraw({amount, updateWithdrawAmount}: any) {
                     value={withdrawAmount}
                     onChange={(e) => {
                         setWithdrawAmount(
-                          Number(e.target.value)
+                            Number(e.target.value)
                         );
                         updateWithdrawAmount(Number(e.target.value))
-                      }}
+                    }}
                     endAdornment={
                         <InputAdornment
                             position="end"
@@ -90,7 +90,7 @@ export default function Withdraw({amount, updateWithdrawAmount}: any) {
                         justifySelf: "flex-end",
                     }}
                 >
-                    {amount} { withdrawAmount && <> -&gt; {Math.abs( amount - withdrawAmount ) }</>}
+                    {amount} {withdrawAmount && <> -&gt; {Math.abs(amount - withdrawAmount)}</>}
                 </Box>
             </Box>
             <Box
@@ -113,7 +113,7 @@ export default function Withdraw({amount, updateWithdrawAmount}: any) {
                         justifySelf: "flex-end",
                     }}
                 >
-                     {amount} { withdrawAmount && <> -&gt; {Math.abs( amount - withdrawAmount ) }</>}
+                    {amount} {withdrawAmount && <> -&gt; {Math.abs(amount - withdrawAmount)}</>}
                 </Box>
             </Box>
         </Box>
